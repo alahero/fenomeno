@@ -1,0 +1,9 @@
+# Entorno y sistema
+.env
+.env.*
+.DS_Store
+Thumbs.db
+
+# Python (preview local)
+__pycache__/
+*.py[cod]
