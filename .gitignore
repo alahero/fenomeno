@@ -7,3 +7,7 @@ Thumbs.db
 # Python (preview local)
 __pycache__/
 *.py[cod]
+
+# Node / Vite
+node_modules/
+dist/

@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Suaviza el scroll entre anclas de la landing */
+html {
+  scroll-behavior: smooth;
+}
