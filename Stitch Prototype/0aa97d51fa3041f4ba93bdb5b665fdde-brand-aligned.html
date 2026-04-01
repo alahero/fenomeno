@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<!-- Variante revisión marca + a11y + meta. Original: 0aa97d51fa3041f4ba93bdb5b665fdde.html -->
+<!-- Tipografía: stack Stitch (Epilogue / Newsreader / Work Sans). Fundamento marca cita fallbacks Bebas/Cormorant/Inter hasta entrega Pitch/Urbane/Corporate A/Aston Script — ver fenomeno-brand-foundation.md §3 -->
+<html class="dark" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Fenómeno — Hi-Fi Bar Madrid (revisión marca)</title>
+<meta name="description" content="Fenómeno: Hi-Fi bar en Madrid. Sonido analógico, mixología y atmósfera nocturna. Calle Recoletos, Salamanca."/>
+<meta property="og:title" content="Fenómeno — Hi-Fi Bar Madrid"/>
+<meta property="og:description" content="La aguja cae. El mundo se detiene. Alta fidelidad, tragos lentos y curaduría musical en el corazón de Madrid."/>
+<meta property="og:type" content="website"/>
+<meta property="og:locale" content="es_ES"/>
+<!-- Prototipo: Tailwind Play CDN + Google Fonts cargan siempre para fidelidad visual. En producción, valorar CSS/fuentes autoalojados para afinar ePrivacy. -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@700;800;900&amp;family=Newsreader:ital,wght@0,400;1,400&amp;family=Work+Sans:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-fixed": "#ffdad2",
+              "primary-container": "#ff5631",
+              "surface-tint": "#ffb4a4",
+              "outline-variant": "#5c4039",
+              "error-container": "#93000a",
+              "on-secondary-fixed-variant": "#584400",
+              "on-primary-fixed-variant": "#8c1900",
+              "on-surface-variant": "#e6bdb5",
+              "surface-variant": "#383436",
+              "surface-container-high": "#2d292b",
+              "secondary-fixed-dim": "#f1c10a",
+              "surface-container-lowest": "#100d0f",
+              "tertiary-fixed": "#d2e4ff",
+              "surface-bright": "#3c383a",
+              "on-tertiary": "#003259",
+              "secondary-container": "#ebbb00",
+              "surface-container-low": "#1e1b1d",
+              "on-primary-container": "#570b00",
+              "background": "#131012",
+              "on-secondary": "#3d2f00",
+              "on-error": "#690005",
+              "on-secondary-container": "#614c00",
+              "tertiary": "#a0c9ff",
+              "on-primary": "#630f00",
+              "primary": "#ffb4a4",
+              "inverse-primary": "#b72300",
+              "surface-container": "#221f21",
+              "surface": "#131012",
+              "on-primary-fixed": "#3d0600",
+              "error": "#ffb4ab",
+              "secondary-fixed": "#ffe08c",
+              "on-tertiary-fixed-variant": "#00497f",
+              "on-background": "#e8e0e3",
+              "surface-container-highest": "#383436",
+              "tertiary-fixed-dim": "#a0c9ff",
+              "inverse-surface": "#e8e0e3",
+              "on-secondary-fixed": "#241a00",
+              "on-tertiary-fixed": "#001c37",
+              "tertiary-container": "#5194dc",
+              "on-surface": "#e8e0e3",
+              "on-tertiary-container": "#002b4e",
+              "outline": "#ac8881",
+              "inverse-on-surface": "#332f31",
+              "primary-fixed-dim": "#ffb4a4",
+              "surface-dim": "#131012",
+              "on-error-container": "#ffdad6",
+              "secondary": "#ffd96e"
+            },
+            fontFamily: {
+              "headline": ["Epilogue"],
+              "body": ["Work Sans"],
+              "label": ["Newsreader"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      };
+    </script>
+<style type="text/tailwindcss">
+        body {
+            background-color: #131012;
+            color: #e2dcc6;
+            font-family: "Work Sans", sans-serif;
+            background-image: radial-gradient(circle at center, #1c181a 0%, #131012 100%);
+            background-attachment: fixed;
+        }
+        .glass-nav {
+            background: rgba(19, 16, 18, 0.8);
+            backdrop-filter: blur(12px);
+        }
+        .text-glow-primary {
+            text-shadow: 0 0 20px rgba(230, 57, 18, 0.15);
+        }
+        /* Enfoque visible: alineado a buenas prácticas a11y (ui-ux / WCAG) */
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible {
+            outline: 2px solid #F5C412;
+            outline-offset: 3px;
+        }
+        .skip-link {
+            position: absolute;
+            left: 1rem;
+            top: 1rem;
+            z-index: 100;
+            padding: 0.5rem 1rem;
+            background: #E63912;
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-radius: 9999px;
+            transform: translateY(-200%);
+            transition: transform 0.2s ease;
+        }
+        .skip-link:focus {
+            transform: translateY(0);
+        }
+        /* Newsletter: estado error alineado a rojo marca (evita tooltips nativos del navegador) */
+        #email-newsletter.newsletter-field-error {
+            border-color: #e63912;
+            box-shadow: 0 0 0 2px rgba(230, 57, 18, 0.45);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-primary-container selection:text-on-primary-container">
+<a class="skip-link font-headline" href="#contenido-principal">Saltar al contenido</a>
+<header class="fixed top-0 w-full z-50 glass-nav border-b border-white/5">
+<nav class="flex justify-between items-center px-8 py-6 w-full max-w-7xl mx-auto" aria-label="Principal">
+<a href="#inicio" class="text-2xl font-bold tracking-tighter text-[#E63912] uppercase font-headline focus-visible:outline-offset-4">
+                Fenómeno
+            </a>
+<div class="hidden md:flex items-center gap-10 font-headline font-bold text-sm tracking-tight">
+<a class="text-[#E63912] font-bold border-b-2 border-[#E63912] pb-1" href="#inicio">Inicio</a>
+<a class="text-[#e2dcc6] hover:text-[#E63912] transition-colors" href="#manifiesto">Manifiesto</a>
+<a class="text-[#e2dcc6] hover:text-[#E63912] transition-colors" href="#curaduria">Curaduría</a>
+<a class="text-[#e2dcc6] hover:text-[#E63912] transition-colors" href="#programacion">Programación</a>
+<a class="text-[#e2dcc6] hover:text-[#E63912] transition-colors" href="#pie">Contacto</a>
+</div>
+<button type="button" class="bg-[#E63912] text-white px-6 py-2 rounded-full font-headline font-bold text-sm hover:opacity-90 transition-all duration-200 scale-100 active:scale-95">
+                Pedir mesa
+            </button>
+</nav>
+</header>
+<main id="contenido-principal" class="pt-32 pb-24" tabindex="-1">
+<section id="inicio" class="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center" aria-labelledby="titulo-hero">
+<div class="lg:col-span-7 space-y-8">
+<div class="space-y-2">
+<span class="font-label italic text-[#F5C412] text-lg tracking-wide">Tu destino Hi-Fi en el corazón de Madrid</span>
+<h1 id="titulo-hero" class="text-6xl md:text-8xl font-black font-headline text-[#E63912] leading-[0.9] tracking-tighter text-glow-primary uppercase">
+                        La aguja cae.<br/>El mundo se detiene.
+                    </h1>
+</div>
+<p class="text-xl md:text-2xl font-label italic text-[#e2dcc6] max-w-xl leading-relaxed">
+                    El detalle suena más fuerte que el ruido. Un vaso en la mano, un vinilo girando. Alta fidelidad para los que saben escuchar.
+                </p>
+</div>
+<div class="lg:col-span-5 relative group">
+<div class="absolute -inset-4 bg-[#1e1b1d] rounded-xl -rotate-2 group-hover:rotate-0 transition-transform duration-500" aria-hidden="true"></div>
+<div class="relative bg-[#221f21] p-1 rounded-xl shadow-2xl overflow-hidden aspect-[4/5] flex flex-col border border-white/5">
+<div class="flex-grow overflow-hidden">
+<img alt="Atmósfera Fenómeno" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" src="assets/img-01.jpg"/>
+</div>
+<!-- Franja cinco colores: referencia TV analógica + paleta marca (se mantiene a petición) -->
+<div class="flex h-32 w-full" role="img" aria-label="Paleta de marca Fenómeno en franja horizontal, estética televisor">
+<div class="w-1/5 bg-[#3f241d]" title="Madera"></div>
+<div class="w-1/5 bg-[#F5C412]" title="Amarillo marca"></div>
+<div class="w-1/5 bg-[#E63912]" title="Rojo marca"></div>
+<div class="w-1/5 bg-[#e2dcc6]" title="Crema"></div>
+<div class="w-1/5 bg-[#1266AB]" title="Azul marca"></div>
+</div>
+<div class="absolute bottom-36 left-8 right-8">
+<div class="bg-[#131012]/90 p-6 border border-[#E63912]/30 backdrop-blur-md">
+<h3 class="font-headline font-black text-4xl text-[#e2dcc6] leading-none uppercase tracking-tighter">
+                                MADRID<br/><span class="text-[#E63912]">HI-FI BAR</span>
+</h3>
+<p class="font-headline font-bold text-xs mt-2 tracking-widest text-[#F5C412] uppercase">Calle Recoletos, 17 — Salamanca, Madrid</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="manifiesto" class="max-w-7xl mx-auto px-8 mt-48" aria-labelledby="titulo-manifiesto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+<div class="max-w-2xl">
+<span class="font-label italic text-[#E63912] text-xl">El Manifiesto</span>
+<h2 id="titulo-manifiesto" class="text-5xl font-black font-headline text-[#e2dcc6] uppercase tracking-tighter mt-2">
+                        Donde el sonido <span class="text-[#F5C412]">toma forma</span>.
+                    </h2>
+<p class="font-label italic text-[#e2dcc6]/75 text-lg mt-6 max-w-xl leading-relaxed border-l-2 border-[#F5C412]/40 pl-5">
+                        La noche se dirige sola: iluminación justa, la mezcla musical impecable y una atmósfera que te llama de vuelta. Hay escenas que se disfrutan en cámara lenta.
+                    </p>
+</div>
+<div class="h-px bg-[#3a322f] flex-grow mx-8 hidden lg:block mb-4" aria-hidden="true"></div>
+<div class="text-right">
+<p class="font-body text-[#e2dcc6] text-sm uppercase tracking-widest">Estética &amp; Audio</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="p-10 border border-[#3a322f] rounded-none bg-transparent hover:bg-[#1e1b1d] transition-colors group flex flex-col justify-between min-h-[450px]">
+<div>
+<span class="text-4xl font-headline font-black text-[#E63912]/20 group-hover:text-[#E63912] transition-colors">01</span>
+<h3 class="text-3xl font-headline font-bold text-[#e2dcc6] mt-6 leading-tight uppercase">Cultura del sonido</h3>
+<div class="mt-6 overflow-hidden rounded-lg">
+<img alt="Selección de vinilos" class="w-full h-40 object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="assets/img-02.jpg"/>
+</div>
+</div>
+<p class="font-body text-[#e2dcc6]/80 leading-relaxed mt-6">
+                        No es solo música, es la pureza técnica de un sistema analógico diseñado para sentir cada frecuencia en el pecho.
+                    </p>
+</div>
+<div class="p-10 border border-[#3a322f] rounded-none bg-[#1e1b1d] transition-colors group flex flex-col justify-between min-h-[450px]">
+<div>
+<span class="text-4xl font-headline font-black text-[#F5C412]/20 group-hover:text-[#F5C412] transition-colors">02</span>
+<h3 class="text-3xl font-headline font-bold text-[#e2dcc6] mt-6 leading-tight uppercase">Ambiente</h3>
+<div class="mt-6 overflow-hidden rounded-lg">
+<img alt="Interior Fenómeno" class="w-full h-40 object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="assets/img-01.jpg"/>
+</div>
+</div>
+<p class="font-body text-[#e2dcc6]/80 leading-relaxed mt-6">
+                        Luz tenue, madera noble y el crujido orgánico de la cera. Un refugio analógico en el centro de la capital.
+                    </p>
+</div>
+<div class="p-10 border border-[#3a322f] rounded-none bg-transparent hover:bg-[#1e1b1d] transition-colors group flex flex-col justify-between min-h-[450px]">
+<div>
+<!-- Tercer bloque manifiesto: azul marca (#1266AB) en secuencia 01 rojo / 02 amarillo / 03 azul -->
+<span class="text-4xl font-headline font-black text-[#1266AB]/25 group-hover:text-[#1266AB] transition-colors">03</span>
+<h3 class="text-3xl font-headline font-bold text-[#e2dcc6] mt-6 leading-tight uppercase">Mixología Hi-Fi</h3>
+<div class="mt-6 overflow-hidden rounded-lg">
+<img alt="Cocktail Art" class="w-full h-40 object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="assets/img-03.jpg"/>
+</div>
+</div>
+<p class="font-body text-[#e2dcc6]/80 leading-relaxed mt-6">
+                        Cócteles de autor que respetan el clásico y una selección de vinilos curada por selectores locales e internacionales.
+                    </p>
+</div>
+</div>
+</section>
+<section id="curaduria" class="mt-48 w-full bg-[#1e1b1d] py-24 relative" aria-labelledby="titulo-curaduria">
+<div class="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+<div class="relative order-2 lg:order-1">
+<div class="grid grid-cols-2 gap-4">
+<img alt="Detalle barra" class="rounded-xl w-full h-80 object-cover" src="assets/img-04.jpg"/>
+<div class="relative mt-12">
+<img alt="Cocktail y vinilo" class="rounded-xl w-full h-80 object-cover" src="assets/img-05.jpg"/>
+<!-- Distintivo circular tipo sticker (alineado a otra pantalla Stitch): esquina inferior derecha de la segunda foto -->
+<div aria-hidden="true" class="absolute z-10 -bottom-5 -right-5 md:-bottom-4 md:-right-4 translate-x-0.5 translate-y-0.5 w-[6.25rem] h-[6.25rem] sm:w-[7rem] sm:h-[7rem] md:w-[8.5rem] md:h-[8.5rem] rounded-full bg-[#F5C412] shadow-[0_12px_40px_rgba(0,0,0,0.35)] flex items-center justify-center text-center p-2 sm:p-3 border border-[#131012]/10 rotate-[15deg] origin-center">
+<span class="font-headline font-black text-[#131012] text-[0.52rem] sm:text-[0.58rem] md:text-[0.7rem] leading-[1.15] uppercase tracking-tight">Escucha<br/>con<br/>atención</span>
+</div>
+</div>
+</div>
+</div>
+<div class="space-y-8 order-1 lg:order-2">
+<h2 id="titulo-curaduria" class="text-5xl font-headline font-black text-[#e2dcc6] uppercase tracking-tighter leading-none">
+                        La curaduría como <span class="text-[#E63912]">forma de arte</span>.
+                    </h2>
+<div class="space-y-6">
+<div class="flex gap-6 items-start">
+<span class="material-symbols-outlined text-[#F5C412] mt-1 shrink-0" aria-hidden="true">album</span>
+<div>
+<h4 class="font-headline font-bold text-[#e2dcc6] uppercase">Sistema de Sonido</h4>
+<p class="font-body text-[#e2dcc6]/70 text-sm">Altavoces de alta gama para una dispersión sonora sin precedentes.</p>
+</div>
+</div>
+<div class="flex gap-6 items-start">
+<span class="material-symbols-outlined text-[#F5C412] mt-1 shrink-0" aria-hidden="true">graphic_eq</span>
+<div>
+<h4 class="font-headline font-bold text-[#e2dcc6] uppercase">Pureza Analógica</h4>
+<p class="font-body text-[#e2dcc6]/70 text-sm">El calor del sonido real, procesado con componentes de audiófilo.</p>
+</div>
+</div>
+<div class="flex gap-6 items-start">
+<span class="material-symbols-outlined text-[#F5C412] mt-1 shrink-0" aria-hidden="true">local_bar</span>
+<div>
+<h4 class="font-headline font-bold text-[#e2dcc6] uppercase">Tragos Lentos</h4>
+<p class="font-body text-[#e2dcc6]/70 text-sm">Mixología pensada para acompañar la escucha, sin prisa.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="programacion" class="max-w-7xl mx-auto px-4 min-[400px]:px-6 sm:px-8 pt-48" aria-labelledby="titulo-newsletter">
+<div class="bg-[#1e1b1d] rounded-3xl overflow-hidden relative min-h-[520px] md:min-h-[500px] flex flex-col md:block">
+<img alt="" class="absolute inset-0 w-full h-full object-cover opacity-40" src="assets/img-06.jpg" role="presentation"/>
+<div class="relative z-10 flex flex-1 flex-col justify-center min-h-0 min-w-0 w-full p-6 min-[400px]:p-8 sm:p-12 md:p-24 md:absolute md:inset-0 md:flex md:items-center">
+<div class="max-w-2xl min-w-0 w-full">
+<h2 class="font-headline font-black text-[#e2dcc6] uppercase mb-4 hyphens-auto break-words text-[clamp(1.65rem,5.2vw+0.85rem,3.75rem)] leading-[0.98] sm:leading-[0.95] md:leading-none tracking-tight sm:tracking-tighter" id="titulo-newsletter" lang="es">
+                        Avísame de la<br/><span class="text-[#E63912]">programación</span>
+</h2>
+<p class="font-body text-[#e2dcc6]/70 text-sm mb-8 max-w-md">Cuando haya sesiones o novedades, te escribimos sin abrumar.</p>
+<form class="flex flex-col gap-5" action="#" id="form-newsletter" method="post" novalidate>
+<div class="flex flex-col sm:flex-row gap-4 items-stretch">
+<div class="flex flex-col gap-2 flex-1 min-w-0">
+<label class="sr-only" for="email-newsletter">Correo para avisos de programación</label>
+<input aria-describedby="error-email-newsletter" autocomplete="email" class="bg-[#131012]/80 border border-transparent px-6 py-4 rounded-full text-[#e2dcc6] placeholder-[#e2dcc6]/45 focus:ring-2 focus:ring-[#E63912] focus:border-transparent w-full font-body backdrop-blur-sm" id="email-newsletter" inputmode="email" name="email" placeholder="tu@email.com" type="email"/>
+<div aria-live="polite" class="hidden mt-2 gap-2.5 items-start rounded-[1rem] border border-[#E63912]/60 bg-[#131012]/95 px-4 py-3 font-body text-xs text-[#e2dcc6] leading-snug shadow-[0_8px_30px_rgba(0,0,0,0.35)] backdrop-blur-sm" id="error-email-newsletter" role="alert">
+<span class="font-headline font-black text-[#F5C412] text-sm leading-none shrink-0 mt-0.5" aria-hidden="true">!</span>
+<span id="error-email-newsletter-msg"></span>
+</div>
+</div>
+<button class="bg-[#E63912] text-white font-headline font-extrabold px-8 py-4 rounded-full uppercase tracking-tighter hover:opacity-90 transition-opacity whitespace-nowrap self-stretch sm:self-auto" type="submit">
+                            Avísame
+                        </button>
+</div>
+<label class="flex items-start gap-3 cursor-pointer font-body text-[#e2dcc6]/80 text-xs leading-snug w-full min-w-0 max-w-xl sm:max-w-xl">
+<input aria-describedby="error-consent-newsletter" class="mt-1 h-4 w-4 shrink-0 rounded border-[#ac8881] text-[#E63912] focus:ring-[#E63912]" id="consentimiento-newsletter" name="consentimiento_marketing" type="checkbox" value="1"/>
+<span class="min-w-0 break-words hyphens-auto" lang="es">Quiero recibir correos sobre programación y novedades y <strong>acepto la <a class="text-[#F5C412] underline underline-offset-2" href="#politica-privacidad">política de privacidad</a></strong>. Sin casilla marcada no hay consentimiento válido para este fin.</span>
+</label>
+<div aria-live="polite" class="hidden mt-2 gap-2.5 items-start rounded-[1rem] border border-[#E63912]/60 bg-[#131012]/95 px-4 py-3 font-body text-xs text-[#e2dcc6] leading-snug shadow-[0_8px_30px_rgba(0,0,0,0.35)] backdrop-blur-sm max-w-xl" id="error-consent-newsletter" role="alert">
+<span class="font-headline font-black text-[#F5C412] text-sm leading-none shrink-0 mt-0.5" aria-hidden="true">!</span>
+<span id="error-consent-newsletter-msg"></span>
+</div>
+</form>
+</div>
+</div>
+<p class="relative z-10 shrink-0 mx-6 min-[400px]:mx-8 mb-6 mt-2 sm:mx-12 sm:mb-8 md:mx-0 md:mb-0 md:mt-0 md:absolute md:bottom-8 md:right-8 md:left-auto md:z-20 md:max-w-xs w-auto font-body text-[#e2dcc6]/70 text-[10px] sm:text-xs leading-relaxed text-left md:text-right [text-wrap:balance] bg-[#131012]/88 backdrop-blur-md border border-white/10 rounded-[1rem] px-4 py-3 shadow-lg" id="aviso-newsletter">
+<strong class="text-[#e2dcc6]/90">Protección de datos:</strong> el correo se trata para enviarte avisos sobre programación y novedades de Fenómeno. <strong class="text-[#e2dcc6]/85">Base legal:</strong> tu consentimiento (art. 6.1.a RGPD). Puedes retirarlo cuando quieras. <a class="text-[#F5C412] underline underline-offset-2 hover:opacity-90" href="#politica-privacidad">Información ampliada</a> (responsable, plazos, derechos y reclamación ante la AEPD).
+            </p>
+</div>
+</section>
+</main>
+<footer id="pie" class="bg-[#1e1b1d] w-full py-12 px-8 mt-auto border-t border-white/5">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 w-full">
+<div class="flex flex-col gap-2">
+<div class="text-[#E63912] font-bold text-xl font-headline uppercase tracking-tighter">Fenómeno</div>
+<p class="font-label italic text-sm text-[#e2dcc6]/70">Fenómeno Madrid — La música protagoniza una historia de la que eres parte.</p>
+</div>
+<div class="flex gap-8 items-center flex-wrap justify-center">
+<a class="font-headline font-bold text-xs text-[#e2dcc6]/70 hover:text-[#F5C412] transition-colors uppercase tracking-widest" href="#programacion">Programación</a>
+<a class="font-headline font-bold text-xs text-[#e2dcc6]/70 hover:text-[#F5C412] transition-colors uppercase tracking-widest" href="#">Instagram</a>
+<a class="font-headline font-bold text-xs text-[#e2dcc6]/70 hover:text-[#F5C412] transition-colors uppercase tracking-widest" href="mailto:hola@fenomeno.bar">Contacto</a>
+<a class="font-headline font-bold text-xs text-[#e2dcc6]/70 hover:text-[#F5C412] transition-colors uppercase tracking-widest" href="#politica-privacidad">Privacidad</a>
+<a class="font-headline font-bold text-xs text-[#e2dcc6]/70 hover:text-[#F5C412] transition-colors uppercase tracking-widest" href="#politica-cookies">Cookies</a>
+<button class="font-headline font-bold text-xs text-[#e2dcc6]/70 hover:text-[#F5C412] transition-colors uppercase tracking-widest underline-offset-4 hover:underline bg-transparent border-0 cursor-pointer p-0" id="reabrir-preferencias-cookies" type="button">Cambiar preferencias</button>
+</div>
+</div>
+<div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-[#3a322f]/30 flex flex-col sm:flex-row justify-between items-center gap-4">
+<p class="font-body text-[10px] text-[#e2dcc6]/40 uppercase tracking-[0.3em] text-center sm:text-left">© 2026 Fenómeno — Todos los derechos reservados</p>
+<!-- Acento pie: secuencia marca rojo–amarillo–azul -->
+<div class="flex gap-4" aria-hidden="true">
+<div class="w-2 h-2 rounded-full bg-[#E63912]"></div>
+<div class="w-2 h-2 rounded-full bg-[#F5C412]"></div>
+<div class="w-2 h-2 rounded-full bg-[#1266AB]"></div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto mt-16 px-8 pb-8 space-y-16 border-t border-[#3a322f]/40 pt-12">
+<section class="scroll-mt-32" id="politica-privacidad" aria-labelledby="titulo-politica-privacidad">
+<h2 class="font-headline font-black text-xl text-[#e2dcc6] uppercase tracking-tight mb-4" id="titulo-politica-privacidad">Información sobre protección de datos (resumen)</h2>
+<p class="font-body text-[#e2dcc6]/65 text-xs leading-relaxed max-w-3xl mb-3"><strong class="text-[#e2dcc6]/85">Texto orientativo — no sustituye asesoría legal.</strong> Ajusta identificadores, encargados, plazos y cláusulas con tu despacho antes de publicar.</p>
+<div class="font-body text-[#e2dcc6]/70 text-xs leading-relaxed max-w-3xl space-y-3">
+<p><strong class="text-[#e2dcc6]">Responsable:</strong> Fenómeno (Madrid) — contacto: <a class="text-[#F5C412] underline underline-offset-2" href="mailto:hola@fenomeno.bar">hola@fenomeno.bar</a>. <strong class="text-[#e2dcc6]">Finalidades:</strong> (1) Gestionar el alta a avisos por correo sobre programación y novedades si marcas la casilla de consentimiento; (2) atender consultas que nos envíes por correo u otros medios; (3) cumplir obligaciones legales aplicables. <strong class="text-[#e2dcc6]">Bases legales:</strong> consentimiento para el boletín (art. 6.1.a RGPD); interés legítimo o relación precontractual/contractual para consultas, según el caso (arts. 6.1.b y 6.1.f); obligación legal cuando corresponda (art. 6.1.c).</p>
+<p><strong class="text-[#e2dcc6]">Conservación:</strong> mientras mantengas el consentimiento o hasta que solicites baja; plazos legales adicionales si aplica. <strong class="text-[#e2dcc6]">Destinatarios:</strong> personal autorizado y proveedores que actúen como encargados del tratamiento (p. ej. hosting, envío de correo), con contrato tipo art. 28 RGPD cuando proceda.</p>
+<p><strong class="text-[#e2dcc6]">Transferencias fuera del EEE:</strong> si usas herramientas con servidores en terceros países, documenta garantías (decisión de adecuación, Cláusulas Contractuales Tipo, certificación DPF u otras) en la versión final de esta política.</p>
+<p><strong class="text-[#e2dcc6]">Derechos:</strong> acceso, rectificación, supresión, oposición, limitación del tratamiento, portabilidad y retirada del consentimiento en cualquier momento. Puedes ejercerlos escribiendo a <a class="text-[#F5C412] underline underline-offset-2" href="mailto:hola@fenomeno.bar">hola@fenomeno.bar</a>. <strong class="text-[#e2dcc6]">Reclamación:</strong> ante la autoridad de control (<a class="text-[#F5C412] underline underline-offset-2" href="https://www.aepd.es" rel="noopener noreferrer" target="_blank">AEPD</a> en España).</p>
+</div>
+</section>
+<section class="scroll-mt-32" id="politica-cookies" aria-labelledby="titulo-politica-cookies">
+<h2 class="font-headline font-black text-xl text-[#e2dcc6] uppercase tracking-tight mb-4" id="titulo-politica-cookies">Cookies y tecnologías similares</h2>
+<p class="font-body text-[#e2dcc6]/70 text-xs leading-relaxed max-w-3xl space-y-3">
+<span class="block"><strong class="text-[#e2dcc6]">Preferencia del aviso:</strong> si usas «Aceptar» o «Rechazar todo», guardamos la elección en <code class="text-[#F5C412]">fenomeno_consent_v1</code> (<code class="text-[#F5C412]">localStorage</code>) para no mostrar el banner en cada visita. Ajusta la base legal con tu asesoría.</span>
+<span class="block"><strong class="text-[#e2dcc6]">Presentación del prototipo:</strong> al abrir la página se solicitan el script de Tailwind (CDN), hojas de Google Fonts y Material Symbols; implican conexión a terceros. Para producción suele recomendarse CSS y fuentes autoalojados para alinear mejor con ePrivacy.</span>
+<span class="block">Puedes cambiar de opinión borrando el almacenamiento del sitio en tu navegador o contactándonos. Más información en la <a class="text-[#F5C412] underline underline-offset-2" href="https://gdpr-info.eu/" rel="noopener noreferrer" target="_blank">guía general sobre el RGPD</a> y en la normativa de cookies aplicable en tu país.</span>
+</p>
+</section>
+</div>
+</footer>
+<!-- Banner cookies: primer nivel con rechazar/aceptar de igual prominencia (EDPB / práctica supervisores) -->
+<div aria-describedby="desc-banner-cookies" aria-labelledby="titulo-banner-cookies" class="hidden fixed inset-x-0 bottom-0 z-[100] border-t border-white/10 bg-[#131012]/98 px-4 py-5 shadow-[0_-8px_40px_rgba(0,0,0,0.45)] backdrop-blur-md md:px-8" id="banner-cookies-fenomeno" role="dialog">
+<div class="max-w-7xl mx-auto flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+<div class="flex-1 min-w-0">
+<p class="font-headline font-bold text-sm text-[#e2dcc6] tracking-tight" id="titulo-banner-cookies">Cookies y privacidad</p>
+<p class="font-body text-[#e2dcc6]/70 text-xs leading-relaxed mt-1 max-w-3xl" id="desc-banner-cookies">Este prototipo carga estilos (Tailwind vía CDN) y fuentes desde Google para mostrar el diseño. Guardamos en tu dispositivo solo la preferencia del banner (<code class="text-[#F5C412]">localStorage</code>) si eliges una opción. <a class="text-[#F5C412] underline underline-offset-2" href="#politica-cookies">Política de cookies</a> · <a class="text-[#F5C412] underline underline-offset-2" href="#politica-privacidad">Privacidad</a></p>
+</div>
+<div class="flex flex-col sm:flex-row flex-wrap gap-3 shrink-0 items-stretch sm:items-center">
+<button class="font-headline font-bold text-sm uppercase tracking-wide rounded-full border-2 border-[#e2dcc6]/50 bg-[#1e1b1d] px-6 py-3 min-w-[11rem] text-[#e2dcc6] hover:border-[#F5C412] hover:text-[#F5C412] transition-colors" id="cookie-rechazar-todo" type="button">Rechazar todo</button>
+<button class="font-headline font-bold text-sm uppercase tracking-wide rounded-full border-2 border-[#E63912] bg-[#E63912] px-6 py-3 min-w-[11rem] text-white hover:opacity-90 transition-opacity" id="cookie-aceptar-todo" type="button">Aceptar</button>
+</div>
+</div>
+</div>
+<script>
+(function () {
+  // Clave de almacenamiento local para la elección RGPD/ePrivacy (solo preferencia, sin PII).
+  var CLAVE_CONSENTIMIENTO = "fenomeno_consent_v1";
+  var banner = document.getElementById("banner-cookies-fenomeno");
+  function mostrarBanner() {
+    if (banner) banner.classList.remove("hidden");
+  }
+  function ocultarBanner() {
+    if (banner) banner.classList.add("hidden");
+  }
+  try {
+    var guardado = localStorage.getItem(CLAVE_CONSENTIMIENTO);
+    if (guardado === "essential" || guardado === "all") ocultarBanner();
+    else mostrarBanner();
+  } catch (err) {
+    mostrarBanner();
+  }
+  var btnRechazar = document.getElementById("cookie-rechazar-todo");
+  var btnAceptar = document.getElementById("cookie-aceptar-todo");
+  var btnReabrir = document.getElementById("reabrir-preferencias-cookies");
+  if (btnRechazar) {
+    btnRechazar.addEventListener("click", function () {
+      try {
+        localStorage.setItem(CLAVE_CONSENTIMIENTO, "essential");
+      } catch (e) {}
+      ocultarBanner();
+    });
+  }
+  if (btnAceptar) {
+    btnAceptar.addEventListener("click", function () {
+      try {
+        localStorage.setItem(CLAVE_CONSENTIMIENTO, "all");
+      } catch (e) {}
+      ocultarBanner();
+    });
+  }
+  if (btnReabrir) {
+    btnReabrir.addEventListener("click", function () {
+      try {
+        localStorage.removeItem(CLAVE_CONSENTIMIENTO);
+      } catch (e) {}
+      window.location.reload();
+    });
+  }
+})();
+</script>
+<script>
+(function () {
+  var form = document.getElementById("form-newsletter");
+  var email = document.getElementById("email-newsletter");
+  var consent = document.getElementById("consentimiento-newsletter");
+  var errEmailBox = document.getElementById("error-email-newsletter");
+  var errEmailMsg = document.getElementById("error-email-newsletter-msg");
+  var errConsentBox = document.getElementById("error-consent-newsletter");
+  var errConsentMsg = document.getElementById("error-consent-newsletter-msg");
+  if (!form || !email || !consent || !errEmailBox || !errEmailMsg || !errConsentBox || !errConsentMsg) return;
+
+  function ocultarErrorCorreo() {
+    errEmailBox.classList.add("hidden");
+    errEmailBox.classList.remove("flex");
+    errEmailMsg.textContent = "";
+    email.classList.remove("newsletter-field-error");
+    email.removeAttribute("aria-invalid");
+  }
+
+  function mostrarErrorCorreo(texto) {
+    errEmailMsg.textContent = texto;
+    errEmailBox.classList.remove("hidden");
+    errEmailBox.classList.add("flex");
+    email.classList.add("newsletter-field-error");
+    email.setAttribute("aria-invalid", "true");
+  }
+
+  function ocultarErrorConsentimiento() {
+    errConsentBox.classList.add("hidden");
+    errConsentBox.classList.remove("flex");
+    errConsentMsg.textContent = "";
+    consent.removeAttribute("aria-invalid");
+  }
+
+  function mostrarErrorConsentimiento(texto) {
+    errConsentMsg.textContent = texto;
+    errConsentBox.classList.remove("hidden");
+    errConsentBox.classList.add("flex");
+    consent.setAttribute("aria-invalid", "true");
+  }
+
+  function correoValido(valor) {
+    if (!valor || !String(valor).trim()) return false;
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(valor).trim());
+  }
+
+  email.addEventListener("input", ocultarErrorCorreo);
+  consent.addEventListener("change", ocultarErrorConsentimiento);
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    ocultarErrorCorreo();
+    ocultarErrorConsentimiento();
+
+    var v = email.value;
+    if (!v || !String(v).trim()) {
+      mostrarErrorCorreo("Escribe un correo electrónico.");
+      email.focus();
+      errEmailBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      return;
+    }
+    if (!correoValido(v)) {
+      mostrarErrorCorreo("Revisa el formato del correo (ej. nombre@dominio.com).");
+      email.focus();
+      errEmailBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      return;
+    }
+    if (!consent.checked) {
+      mostrarErrorConsentimiento("Marca la casilla para dar tu consentimiento y poder enviarte avisos.");
+      consent.focus();
+      errConsentBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      return;
+    }
+    // Prototipo estático: enlazar aquí el envío real al backend cuando exista.
+  });
+})();
+</script>
+</body>
+</html>

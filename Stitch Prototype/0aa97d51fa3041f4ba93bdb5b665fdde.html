@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Fenómeno — Hi-Fi Bar Madrid</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@700;800;900&amp;family=Newsreader:ital,wght@0,400;1,400&amp;family=Work+Sans:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-fixed": "#ffdad2",
+              "primary-container": "#ff5631",
+              "surface-tint": "#ffb4a4",
+              "outline-variant": "#5c4039",
+              "error-container": "#93000a",
+              "on-secondary-fixed-variant": "#584400",
+              "on-primary-fixed-variant": "#8c1900",
+              "on-surface-variant": "#e6bdb5",
+              "surface-variant": "#383436",
+              "surface-container-high": "#2d292b",
+              "secondary-fixed-dim": "#f1c10a",
+              "surface-container-lowest": "#100d0f",
+              "tertiary-fixed": "#d2e4ff",
+              "surface-bright": "#3c383a",
+              "on-tertiary": "#003259",
+              "secondary-container": "#ebbb00",
+              "surface-container-low": "#1e1b1d",
+              "on-primary-container": "#570b00",
+              "background": "#131012",
+              "on-secondary": "#3d2f00",
+              "on-error": "#690005",
+              "on-secondary-container": "#614c00",
+              "tertiary": "#a0c9ff",
+              "on-primary": "#630f00",
+              "primary": "#ffb4a4",
+              "inverse-primary": "#b72300",
+              "surface-container": "#221f21",
+              "surface": "#131012",
+              "on-primary-fixed": "#3d0600",
+              "error": "#ffb4ab",
+              "secondary-fixed": "#ffe08c",
+              "on-tertiary-fixed-variant": "#00497f",
+              "on-background": "#e8e0e3",
+              "surface-container-highest": "#383436",
+              "tertiary-fixed-dim": "#a0c9ff",
+              "inverse-surface": "#e8e0e3",
+              "on-secondary-fixed": "#241a00",
+              "on-tertiary-fixed": "#001c37",
+              "tertiary-container": "#5194dc",
+              "on-surface": "#e8e0e3",
+              "on-tertiary-container": "#002b4e",
+              "outline": "#ac8881",
+              "inverse-on-surface": "#332f31",
+              "primary-fixed-dim": "#ffb4a4",
+              "surface-dim": "#131012",
+              "on-error-container": "#ffdad6",
+              "secondary": "#ffd96e"
+            },
+            fontFamily: {
+              "headline": ["Epilogue"],
+              "body": ["Work Sans"],
+              "label": ["Newsreader"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style type="text/tailwindcss">
+        body {
+            background-color: #131012;
+            color: #e2dcc6;
+            font-family: "Work Sans", sans-serif;
+            background-image: radial-gradient(circle at center, #1c181a 0%, #131012 100%);
+            background-attachment: fixed;
+        }
+        .glass-nav {
+            background: rgba(19, 16, 18, 0.8);
+            backdrop-filter: blur(12px);
+        }
+        .text-glow-primary {
+            text-shadow: 0 0 20px rgba(230, 57, 18, 0.15);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-primary-container selection:text-on-primary-container">
+<header class="fixed top-0 w-full z-50 glass-nav border-b border-white/5">
+<nav class="flex justify-between items-center px-8 py-6 w-full max-w-7xl mx-auto">
+<div class="text-2xl font-bold tracking-tighter text-[#E63912] uppercase font-headline">
+                Fenómeno
+            </div>
+<div class="hidden md:flex items-center gap-10 font-headline font-bold text-sm tracking-tight">
+<a class="text-[#E63912] font-bold border-b-2 border-[#E63912] pb-1" href="#">Inicio</a>
+<a class="text-[#e2dcc6] hover:text-[#E63912] transition-colors" href="#">El sitio</a>
+<a class="text-[#e2dcc6] hover:text-[#E63912] transition-colors" href="#">Contacto</a>
+</div>
+<button class="bg-[#E63912] text-white px-6 py-2 rounded-full font-headline font-bold text-sm hover:opacity-90 transition-all duration-200 scale-100 active:scale-95">
+                Reserva mesa
+            </button>
+</nav>
+</header>
+<main class="pt-32 pb-24">
+<section class="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-7 space-y-8">
+<div class="space-y-2">
+<span class="font-label italic text-[#F5C412] text-lg tracking-wide">Tu destino Hi-Fi en el corazón de Madrid</span>
+<h1 class="text-6xl md:text-8xl font-black font-headline text-[#E63912] leading-[0.9] tracking-tighter text-glow-primary uppercase">
+                        La aguja cae.<br/>El mundo se detiene.
+                    </h1>
+</div>
+<p class="text-xl md:text-2xl font-label italic text-[#e2dcc6]/80 max-w-xl leading-relaxed">
+                    El detalle suena más fuerte que el ruido. Un vaso en la mano, un vinilo girando. Alta fidelidad para los que saben escuchar.
+                </p>
+</div>
+<div class="lg:col-span-5 relative group">
+<div class="absolute -inset-4 bg-[#1e1b1d] rounded-xl -rotate-2 group-hover:rotate-0 transition-transform duration-500"></div>
+<div class="relative bg-[#221f21] p-1 rounded-xl shadow-2xl overflow-hidden aspect-[4/5] flex flex-col border border-white/5">
+<div class="flex-grow overflow-hidden">
+<img alt="Atmósfera Fenómeno" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" src="assets/img-01.jpg"/>
+</div>
+<div class="flex h-32 w-full">
+<div class="w-1/5 bg-[#3f241d]"></div>
+<div class="w-1/5 bg-[#F5C412]"></div>
+<div class="w-1/5 bg-[#E63912]"></div>
+<div class="w-1/5 bg-[#e2dcc6]"></div>
+<div class="w-1/5 bg-[#1266AB]"></div>
+</div>
+<div class="absolute bottom-36 left-8 right-8">
+<div class="bg-[#131012]/90 p-6 border border-[#E63912]/30 backdrop-blur-md">
+<h3 class="font-headline font-black text-4xl text-[#e2dcc6] leading-none uppercase tracking-tighter">
+                                MADRID<br/><span class="text-[#E63912]">HI-FI BAR</span>
+</h3>
+<p class="font-headline font-bold text-xs mt-2 tracking-widest text-[#F5C412] uppercase">Calle Recoletos, 17 — Salamanca, Madrid</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="max-w-7xl mx-auto px-8 mt-48">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+<div class="max-w-2xl">
+<span class="font-label italic text-[#E63912] text-xl">El Manifiesto</span>
+<h2 class="text-5xl font-black font-headline text-[#e2dcc6] uppercase tracking-tighter mt-2">
+                        Donde el sonido <span class="text-[#F5C412]">toma forma</span>.
+                    </h2>
+</div>
+<div class="h-px bg-[#3a322f] flex-grow mx-8 hidden lg:block mb-4"></div>
+<div class="text-right">
+<p class="font-body text-[#e2dcc6]/60 text-sm uppercase tracking-widest">Estética &amp; Audio</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="p-10 border border-[#3a322f] rounded-none bg-transparent hover:bg-[#1e1b1d] transition-colors group flex flex-col justify-between min-h-[450px]">
+<div>
+<span class="text-4xl font-headline font-black text-[#E63912]/20 group-hover:text-[#E63912] transition-colors">01</span>
+<h3 class="text-3xl font-headline font-bold text-[#e2dcc6] mt-6 leading-tight uppercase">Cultura del sonido</h3>
+<div class="mt-6 overflow-hidden rounded-lg">
+<img alt="Selección de vinilos" class="w-full h-40 object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="assets/img-02.jpg"/>
+</div>
+</div>
+<p class="font-body text-[#e2dcc6]/70 leading-relaxed mt-6">
+                        No es solo música, es la pureza técnica de un sistema analógico diseñado para sentir cada frecuencia en el pecho.
+                    </p>
+</div>
+<div class="p-10 border border-[#3a322f] rounded-none bg-[#1e1b1d] transition-colors group flex flex-col justify-between min-h-[450px]">
+<div>
+<span class="text-4xl font-headline font-black text-[#F5C412]/20 group-hover:text-[#F5C412] transition-colors">02</span>
+<h3 class="text-3xl font-headline font-bold text-[#e2dcc6] mt-6 leading-tight uppercase">Ambiente</h3>
+<div class="mt-6 overflow-hidden rounded-lg">
+<img alt="Interior Fenómeno" class="w-full h-40 object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="assets/img-01.jpg"/>
+</div>
+</div>
+<p class="font-body text-[#e2dcc6]/70 leading-relaxed mt-6">
+                        Luz tenue, madera noble y el crujido orgánico de la cera. Un refugio analógico en el centro de la capital.
+                    </p>
+</div>
+<div class="p-10 border border-[#3a322f] rounded-none bg-transparent hover:bg-[#1e1b1d] transition-colors group flex flex-col justify-between min-h-[450px]">
+<div>
+<span class="text-4xl font-headline font-black text-[#1266AB]/20 group-hover:text-[#1266AB] transition-colors">03</span>
+<h3 class="text-3xl font-headline font-bold text-[#e2dcc6] mt-6 leading-tight uppercase">Mixología Hi-Fi</h3>
+<div class="mt-6 overflow-hidden rounded-lg">
+<img alt="Cocktail Art" class="w-full h-40 object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="assets/img-03.jpg"/>
+</div>
+</div>
+<p class="font-body text-[#e2dcc6]/70 leading-relaxed mt-6">
+                        Cócteles de autor que respetan el clásico y una selección de vinilos curada por selectores locales e internacionales.
+                    </p>
+</div>
+</div>
+</section>
+<section class="mt-48 w-full bg-[#1e1b1d] py-24 relative">
+<div class="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+<div class="relative order-2 lg:order-1">
+<div class="grid grid-cols-2 gap-4">
+<img alt="Detalle barra" class="rounded-xl w-full h-80 object-cover" src="assets/img-04.jpg"/>
+<div class="relative mt-12">
+<img alt="Cocktail y vinilo" class="rounded-xl w-full h-80 object-cover" src="assets/img-05.jpg"/>
+<!-- Distintivo circular tipo sticker (alineado a otra pantalla Stitch): esquina inferior derecha de la segunda foto -->
+<div aria-hidden="true" class="absolute z-10 -bottom-5 -right-5 md:-bottom-4 md:-right-4 translate-x-0.5 translate-y-0.5 w-[6.25rem] h-[6.25rem] sm:w-[7rem] sm:h-[7rem] md:w-[8.5rem] md:h-[8.5rem] rounded-full bg-[#F5C412] shadow-[0_12px_40px_rgba(0,0,0,0.35)] flex items-center justify-center text-center p-2 sm:p-3 border border-[#131012]/10 rotate-[15deg] origin-center">
+<span class="font-headline font-black text-[#131012] text-[0.52rem] sm:text-[0.58rem] md:text-[0.7rem] leading-[1.15] uppercase tracking-tight">Escucha<br/>con<br/>atención</span>
+</div>
+</div>
+</div>
+</div>
+<div class="space-y-8 order-1 lg:order-2">
+<h2 class="text-5xl font-headline font-black text-[#e2dcc6] uppercase tracking-tighter leading-none">
+                        La curaduría como <span class="text-[#E63912]">forma de arte</span>.
+                    </h2>
+<div class="space-y-6">
+<div class="flex gap-6 items-start">
+<span class="material-symbols-outlined text-[#F5C412] mt-1">album</span>
+<div>
+<h4 class="font-headline font-bold text-[#e2dcc6] uppercase">Sistema de Sonido</h4>
+<p class="font-body text-[#e2dcc6]/60 text-sm">Altavoces de alta gama para una dispersión sonora sin precedentes.</p>
+</div>
+</div>
+<div class="flex gap-6 items-start">
+<span class="material-symbols-outlined text-[#F5C412] mt-1">graphic_eq</span>
+<div>
+<h4 class="font-headline font-bold text-[#e2dcc6] uppercase">Pureza Analógica</h4>
+<p class="font-body text-[#e2dcc6]/60 text-sm">El calor del sonido real, procesado con componentes de audiófilo.</p>
+</div>
+</div>
+<div class="flex gap-6 items-start">
+<span class="material-symbols-outlined text-[#F5C412] mt-1">local_bar</span>
+<div>
+<h4 class="font-headline font-bold text-[#e2dcc6] uppercase">Tragos Lentos</h4>
+<p class="font-body text-[#e2dcc6]/60 text-sm">Mixología pensada para acompañar la escucha, sin prisa.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="max-w-7xl mx-auto px-8 pt-48">
+<div class="bg-[#1e1b1d] rounded-3xl overflow-hidden relative min-h-[500px] flex items-center">
+<img alt="Horario Fenómeno" class="absolute inset-0 w-full h-full object-cover opacity-40" src="assets/img-06.jpg"/>
+<div class="relative z-10 p-12 md:p-24 max-w-2xl">
+<h2 class="text-6xl font-headline font-black text-[#e2dcc6] uppercase tracking-tighter mb-8 leading-none">
+                        Avisadme de la<br/><span class="text-[#E63912]">programación</span>
+</h2>
+<div class="flex flex-col sm:flex-row gap-4 items-stretch">
+<input class="bg-[#131012]/80 border-none px-6 py-4 rounded-full text-[#e2dcc6] placeholder-[#e2dcc6]/30 focus:ring-2 focus:ring-[#E63912] w-full font-body backdrop-blur-sm" placeholder="Tu email" type="email"/>
+<button class="bg-[#E63912] text-white font-headline font-extrabold px-8 py-4 rounded-full uppercase tracking-tighter hover:opacity-90 transition-opacity whitespace-nowrap">
+                            Suscribirse
+                        </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-[#1e1b1d] w-full py-12 px-8 mt-auto border-t border-white/5">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 w-full">
+<div class="flex flex-col gap-2">
+<div class="text-[#E63912] font-bold text-xl font-headline uppercase tracking-tighter">Fenómeno</div>
+<p class="font-label italic text-sm text-[#e2dcc6]/60">Fenómeno Madrid — La aguja cae. El mundo se detiene.</p>
+</div>
+<div class="flex gap-8 items-center">
+<a class="font-headline font-bold text-xs text-[#e2dcc6]/60 hover:text-[#F5C412] transition-colors uppercase tracking-widest" href="#">Nuestra Programación</a>
+<a class="font-headline font-bold text-xs text-[#e2dcc6]/60 hover:text-[#F5C412] transition-colors uppercase tracking-widest" href="#">Instagram</a>
+<a class="font-headline font-bold text-xs text-[#e2dcc6]/60 hover:text-[#F5C412] transition-colors uppercase tracking-widest" href="#">Contacto</a>
+</div>
+</div>
+<div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-[#3a322f]/30 flex justify-between items-center">
+<p class="font-body text-[10px] text-[#e2dcc6]/30 uppercase tracking-[0.3em]">© 2024 Fenómeno — Todos los derechos reservados</p>
+<div class="flex gap-4">
+<div class="w-2 h-2 rounded-full bg-[#E63912]"></div>
+<div class="w-2 h-2 rounded-full bg-[#F5C412]"></div>
+<div class="w-2 h-2 rounded-full bg-[#1266AB]"></div>
+</div>
+</div>
+</footer>
+</body></html>
