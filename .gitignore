@@ -1,6 +1,7 @@
 # Entorno y sistema
 .env
 .env.*
+!.env.example
 .DS_Store
 Thumbs.db
 
@@ -8,6 +9,6 @@ Thumbs.db
 __pycache__/
 *.py[cod]
 
-# Node / Vite
+# Node / Vite (archivo histórico o futuro web/)
 node_modules/
 dist/

@@ -1,74 +1,59 @@
 ---
 name: fenomeno-brand-guidelines
-description: Use when the user asks to design or implement any Fenomeno website section and needs concrete brand rules from the Fenomeno brandbook, Coming Soon visual, and Instagram content. This skill provides approved tone, communication style, color tokens, typography direction, visual cues, and copy constraints for consistent execution.
+description: Use when implementing Fenomeno (bar Hi-Fi, Madrid) site sections, copy in Spanish, layout, design tokens, or UI decisions. Enforces the brandbook distilled in fenomeno-brand-foundation.md; typography licenses are handled separately by the team.
 ---
 
-# Mission Statement
+# Guía rápida — Fenomeno
 
-Apply Fenomeno brand rules consistently across website planning, copywriting, and UI implementation.
+## Fuente de verdad
 
-## Step-by-Step Instructions
+1. Leer y seguir **[`references/fenomeno-brand-foundation.md`](references/fenomeno-brand-foundation.md)** — inventario de placas en `brand-sources/brandbook-png/`, HEX de acento, tipografía citada, frases (placa 18) y voz (placa 19).
+2. Cuando exista implementación web en el repo, alinear con [`@.agent/rules/web-implementation.md`](../../rules/web-implementation.md) (Vite + React + Tailwind u stack acordado).
+3. **Coming Soon** (`brand-sources/brandbook-png/Fenomento_ComingSoon_Website.png`) y **`brand-sources/social-reference/`** son referencia visual y ambiente; **si hay conflicto con el brandbook (placas 01–43), mandan el brandbook y la foundation**, no una captura suelta ni un mood de red social aislado.
 
-1. Read source-backed guidance.
-   - Read `@.agent/skills/fenomeno-brand-guidelines/references/fenomeno-brand-foundation.md`.
-   - Prioritize explicit rules over stylistic assumptions.
+## Checklist de implementación
 
-2. Set tone before writing or coding.
-   - Write with a sophisticated but accessible voice.
-   - Keep language refined, culturally aware, and never pretentious.
-   - Emphasize atmosphere, detail, sound quality, and curated experience.
+### Color
 
-3. Apply visual direction.
-   - Use dark, warm, cinematic compositions with selective accent colors.
-   - Preserve high-contrast readability for all primary text.
-   - Use bold condensed display styles for hero moments and elegant serif accents for editorial cues.
+- Acentos canónicos: **`#E63912`** (rojo), **`#F5C412`** (amarillo), **`#1266AB`** (azul). Detalle en la tabla de la foundation.
+- Modo habitual en web: **fondo muy oscuro** (`#131012` como referencia del prototipo archivado y alineado a Stitch), **texto crema** (`#e2dcc6` y derivados para jerarquía), **bordes hairline** (`#3a322f`). Los neutros exactos pueden afinarse cuando el manual fije HEX adicionales.
+- **Jerarquía de acento:** un bloque = **un acento dominante** (rojo *o* amarillo *o* azul en primer plano). Evita empatar los tres en el mismo componente pequeño (botón, chip, badge).
+- El rojo sostiene **impacto editorial** (titulares, énfasis); el amarillo **contraste y etiquetas**; el azul **bloques y contrapeso** frente al calor del rojo/amarillo.
 
-4. Apply content pillars.
-   - Build content around sound culture, social energy, atmosphere, table-and-bar ritual, and scene direction.
-   - Keep claims factual and source-backed.
-   - Mark unknown operational data as pending.
+### Tipografía
 
-5. Implement section-level consistency.
-   - Align hero, highlights, and CTA language with “precision over excess.”
-   - Keep copy concise and rhythmic.
-   - Favor sensory detail over generic nightlife adjectives.
+- Familias del manual: **Pitch**, **Urbane**, **Corporate A**, **Aston Script**. **Licencia y archivos web:** los gestiona el equipo; hasta entonces, la app usa **fallbacks** documentados en la foundation (p. ej. Bebas Neue / Cormorant Garamond / Inter).
+- Cuando lleguen las fuentes oficiales, sustituir por pesos y roles que indiquen las **placas tipográficas del brandbook** (no asumir mapeos 1:1 sin revisar PNG).
+- Display / marca: fuerte, **mayúsculas o muy contrastadas**, buen aire; cuerpo: **legible**, sin densidad de “folleto corporativo”. La voz es refinada, no gritona.
 
-6. Run a brand compliance check.
-   - Verify voice, palette, typography intent, and narrative fit.
-   - Remove copy that feels loud, generic, or trend-chasing.
-   - Return a short list of adjusted lines when fixing brand drift.
+### Trazos, radios y layout
 
-## Output Format
+- Separación de secciones: bordes **`1px`** y bloques bien delimitados encajan con el manual tipo **club / cabina / escena**.
+- **Radios:** CTAs tipo **pill** (`border-radius` completo), tarjetas y mocks **16–24px** (subir con `clamp` en desktop si el layout lo pide), contenedores principales coherentes entre sí (no mezclar “todo cuadrado” y “todo redondo” sin intención).
+- Cabecera: puede ser **sticky** con fondo semitransparente y **backdrop blur** si se mantiene legibilidad sobre el hero.
+- **Área de respeto del logotipo/isotipo:** según placa correspondiente en el export PNG; si no está numerada en foundation, revisar placas de logo en `brand-sources/brandbook-png/` antes de encajar en web.
 
-Return responses in this order:
+### Tono y copy (TOV)
 
-1. Brand Intent Applied
-2. Voice And Copy Decisions
-3. Visual Decisions
-4. Section-Level Recommendations
-5. Compliance Checklist
-6. Open Questions
+- **Español** para copy de marca (Madrid, público local y visitante). Tono: **cercano y refinado**, **cosmopolita**, con conocimiento **sin sobreexplicar** (placa 19).
+- **Personalidad:** sofisticada y accesible, culta sin pretensiones, **obsesión sana por el detalle**.
+- **Palabras puente:** sofisticado, detalle, carácter, ritmo, estilo, arte — usar con naturalidad, no como lista en cada párrafo.
+- **Pool de líneas autorizadas** (placa 18): usar texto **tal cual** en hero, redes o piezas salvo brief explícito de adaptación; están en la foundation numeradas.
+- CTAs: **invitar al descubrimiento** más que “vender a presión”; preferir verbos que sugieran **experiencia y escena** (noche, sonido, espacio) alineados al manual.
 
-## Examples
+### Imagen y redes
 
-Example prompt 1:
-"Write homepage hero copy and CTA for Fenomeno."
+- **`brand-sources/social-reference/`** aporta **ritmo, bocados, copas, vinilo, ambiente**; úsalo para coherencia de **atmósfera**, no para contradecir tipografía/color definidos en brandbook.
+- Tratamiento visual (luz baja, calidez, detalle) debe **honrar** “el detalle suena más fuerte que el ruido” sin volverse kitsch.
 
-Expected action:
-- Apply tone and visual intent from references.
-- Return concise hero/title/subtitle/CTA options.
-- Include a compliance checklist.
+### Qué evitar
 
-Example prompt 2:
-"Review this section copy; make it sound on-brand."
+- **Tres acentos fuertes** compitiendo en un mismo módulo pequeño.
+- Copy genérico de bar (“la mejor fiesta”, “número uno”) que **apague** la voz culta y precisa del manual.
+- **Sobrerrevelar** (explicar de más): contradice la voz de placa 19.
+- Tratar **Coming Soon** o **una sola story de Instagram** como manual completo: siempre contrastar con **placas 01–43**.
 
-Expected action:
-- Evaluate against tone, pillars, and style.
-- Rewrite only the lines that drift from brand voice.
-- Explain changes briefly in a compliance checklist.
+## Si falta dato
 
-## Error Handling
-
-- Stop and ask for clarification when a request conflicts with source-backed guidelines.
-- Preserve brand consistency when information is incomplete.
-- Avoid inventing brand facts not grounded in provided sources.
+- No inventar reglas que **contradigan** `fenomeno-brand-foundation.md` o las placas.
+- Marcar en código, comentarios o tareas lo **pendiente** (p. ej. tokens neutros finales, mapeo exacto Pitch/Urbane por nivel tipográfico tras entrega de fuentes).

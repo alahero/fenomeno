@@ -1,100 +1,86 @@
-# Fenomeno Brand Foundation (Source-Backed)
+# Fenomeno — fundamento de marca (referencia operativa)
 
-## Source Inventory
+Documento vivo para implementación web. Las afirmaciones de color y cobertura de placas están **confirmadas por el equipo**; el resto deriva del brandbook exportado a PNG.
 
-- Brandbook PDF: `PDF/Fenómeno_Brandbook.pdf` (43 pages, dirección creativa, voz, pilares, tipografías, identidad gráfica).
-- Coming Soon visuals: `PDF/Fenomento_ComingSoon_Website.png` and `PDF/Fenomento_ComingSoon_Website.pdf`.
-- Instagram media sample: `IG/*.jpg` and `IG/*.mp4` (ambiente, coctelería, música, interiorismo).
+---
 
-## Brand Core Summary
+## 1. Inventario de fuentes (repo)
 
-- Position Fenomeno as a Hi-Fi bar where music, design, and social energy converge.
-- Communicate “sin pretensión pero con excelencia.”
-- Present a curated, intimate, cinematic atmosphere over volume and excess.
+| Origen | Ruta / archivos | Notas |
+|--------|-----------------|--------|
+| Brandbook (export PNG) | `brand-sources/brandbook-png/Sin título-1-01.png` … `Sin título-1-43.png` | **Placas 01–43 = brandbook completo.** |
+| Coming Soon (referencia visual) | `brand-sources/brandbook-png/Fenomento_ComingSoon_Website.png` | Nombre de archivo tal como en export (typo “Fenomento” en el asset). |
+| PDF maestro (si aplica) | `brand-sources/brandbook-pdf/` | La **fecha del PDF original no define vigencia**; para trabajo diario manda la **exportación PNG reciente** (actualizada el **30 de marzo de 2026** en el flujo del proyecto). |
+| Red social (capturas) | `brand-sources/social-reference/` | Complemento; no sustituye definiciones del brandbook. |
 
-## Tone Of Voice
+---
 
-- Use sophisticated but accessible phrasing.
-- Use cultured references without sounding elitist.
-- Use concise lines with rhythm and sensory detail.
-- Avoid loud, generic nightlife clichés.
+## 2. Paleta — acentos oficiales (HEX)
 
-## Communication Style
+Valores confirmados para implementación (web, piezas digitales):
 
-- Build narratives around scene, sound fidelity, and atmosphere transitions.
-- Highlight details: light, texture, vinyl culture, cocktails, and conversation.
-- Keep copy intentional: fewer words, stronger imagery.
+| Rol en marca | HEX | Uso orientativo |
+|--------------|-----|-----------------|
+| Rojo / acento principal | `#E63912` | Titulares fuertes, CTAs, énfasis gráfico. |
+| Amarillo / acento secundario | `#F5C412` | Franjas, badges, contraste sobre oscuro. |
+| Azul / acento frío | `#1266AB` | Bloques de color, contrapeso al rojo/amarillo. |
 
-## Content Pillars
+Neutros (crema, carbón, bordes) se derivan de las placas del brandbook y de tokens usados en Stitch / futura implementación web hasta que el brandbook fije HEX adicionales.
 
-1. Cultura del sonido.
-2. Fenomeno social.
-3. Atmósfera.
-4. Mesa y barra.
-5. Puesta en escena.
+---
 
-## Color Direction
+## 3. Tipografía (pendiente de activos)
 
-Primary direction from brandbook labels:
+Familias citadas en brandbook: **Pitch**, **Urbane**, **Corporate A**, **Aston Script**.
 
-- DARK WOOD
-- WHITE
-- RED
-- BLUE
-- YELLOW
+- **Estado:** sin archivos web ni licencias en repo todavía; el equipo las incorporará después.
+- **Hasta entonces:** usar stack con fallback (p. ej. Bebas Neue / Cormorant / Inter en implementación web) y alinear cuando existan `@font-face` o proveedor autorizado.
+- **Stitch (diseño canónico UI):** en el export web del proyecto se usan **Epilogue** (titulares), **Work Sans** (cuerpo) y **Newsreader** (étiquetas/itálicas) como interinos coherentes con el tema Stitch; sustituir por Pitch/Urbane/Corporate A/Aston Script cuando el equipo publique activos y mapeo por placa.
 
-Working web tokens (provisional until exact palette extraction):
+---
 
-- `--fen-bg`: `#131012` (dark warm background)
-- `--fen-paper`: `#e2dcc6` (warm off-white)
-- `--fen-red`: `#ff4b17` (high-energy orange-red)
-- `--fen-blue`: `#0f6fc1` (electric blue)
-- `--fen-yellow`: `#f4cb00` (record-label yellow)
-- `--fen-wood`: `#4a2c24` (dark wood accent)
+## 4. Frases — placa 18 (texto de marca)
 
-## Typography Direction
+Usar como **pool autorizado** de líneas (hero, redes, piezas). Mantener redacción exacta salvo brief explícito de adaptación.
 
-Brandbook references:
+1. La aguja cae. El mundo se detiene.
+2. El detalle suena más fuerte que el ruido.
+3. Un vaso en la mano, un vinilo girando.
+4. Aquí, la banda sonora es el guión de la noche.
+5. En la escena domina el detalle, el resto lo pone la música.
+6. La noche se dirige sola: iluminación justa, la mezcla musical impecable y una atmósfera que te llama de vuelta.
+7. La música protagoniza una historia de la que eres parte.
+8. Hay escenas que se disfrutan en cámara lenta.
 
-- Principales: Pitch, Urbane Condensed.
-- Secundarias: Corporate A, AstonScriptBold-Bold.
+---
 
-Web application guidance:
+## 5. Personalidad, palabras clave y voz — placa 19
 
-- Use a condensed display face for headlines.
-- Use an elegant serif/script accent selectively for editorial moments.
-- Use a readable body font fallback stack for long-form content.
+### Personalidad
 
-## Visual And Motion Direction
+- Sofisticada pero accesible.
+- Culta sin ser pretenciosa.
+- Apasionada por el detalle.
 
-- Compose scenes with warm low-key lighting and selective contrast.
-- Feature records, mixers, glassware, and tactile materials (wood, metal, glass).
-- Favor cinematic stillness with subtle motion cues over flashy effects.
-- Keep transitions smooth, measured, and atmosphere-first.
+### Palabras clave
 
-## Copy Guardrails
+Sofisticado, detalle, carácter, ritmo, estilo y arte.
 
-Do:
+### Voz
 
-- Evoke atmosphere, precision, and character.
-- Write short, intentional lines.
-- Connect music and social ritual naturally.
+Cercana y refinada, con un aire cosmopolita. Habla con conocimiento, sin caer en la sobreexplicación. Despierta curiosidad e invita al descubrimiento.
 
-Do not:
+---
 
-- Overpromise services not confirmed by sources.
-- Use aggressive party slang disconnected from the refined tone.
-- Overload sections with explanatory marketing text.
+## 6. Implicaciones para UI web
 
-## Website Section Guidance
+- Priorizar **legibilidad** y **ritmo editorial** alineados a la voz (p. ej. titulares contundentes + cuerpo claro).
+- Acentos de color: rotar **rojo / amarillo / azul** con criterio de jerarquía, no mezclar los tres al mismo nivel en un solo componente pequeño.
+- Cualquier nueva sección debe poder justificarse con al menos un ancla del brandbook (placa o Coming Soon).
 
-- Hero: Combine bold identity statement with concise atmospheric support line.
-- Experience block: Explain sound, design, and social cadence in one short paragraph.
-- Highlights: Use cards for sound culture, atmosphere, and table/bar ritual.
-- CTA: Invite discovery with calm confidence, not urgency spam.
+---
 
-## Open Data Gaps
+## 7. Preguntas abiertas (actualizar cuando haya datos)
 
-- Confirm exact production HEX values from brandbook color chips.
-- Confirm legal/official typography files and webfont licensing.
-- Confirm opening hours, booking flow, and menu/service claims before publication.
+- HEX finos de fondos y textos secundarios si el PDF/placas los documentan con muestra.
+- Reglas exactas de pesos Pitch/Urbane por jerarquía tipográfica una vez cargadas las fuentes.
