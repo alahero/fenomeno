@@ -127,6 +127,52 @@
             border-color: #e63912;
             box-shadow: 0 0 0 2px rgba(230, 57, 18, 0.45);
         }
+        /* Onda en puntos del pie: ciclo 2s; el “sube–baja” en ~0.5s (25%) y luego reposo hasta repetir */
+        @keyframes fenomeno-onda-pie {
+            0% {
+                transform: translateY(0);
+                animation-timing-function: cubic-bezier(0.45, 0.08, 0.55, 0.92);
+            }
+            12.5% {
+                transform: translateY(-7px);
+                animation-timing-function: cubic-bezier(0.45, 0.08, 0.55, 0.92);
+            }
+            25%,
+            100% {
+                transform: translateY(0);
+            }
+        }
+        .fenomeno-pie-punto {
+            animation: fenomeno-onda-pie 2s infinite;
+        }
+        .fenomeno-pie-punto:nth-child(1) {
+            animation-delay: 0s;
+        }
+        .fenomeno-pie-punto:nth-child(2) {
+            animation-delay: 0.22s;
+        }
+        .fenomeno-pie-punto:nth-child(3) {
+            animation-delay: 0.44s;
+        }
+        /* Distintivo Curaduría: giro continuo (base ~15° del diseño) */
+        @keyframes fenomeno-sticker-giro {
+            from {
+                transform: translate(2px, 2px) rotate(15deg);
+            }
+            to {
+                transform: translate(2px, 2px) rotate(375deg);
+            }
+        }
+        .fenomeno-curadoria-sticker {
+            transform-origin: center center;
+            animation: fenomeno-sticker-giro 22s linear infinite;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .fenomeno-pie-punto,
+            .fenomeno-curadoria-sticker {
+                animation: none !important;
+            }
+        }
     </style>
 </head>
 <body class="antialiased selection:bg-primary-container selection:text-on-primary-container">
@@ -164,8 +210,9 @@
 <div class="lg:col-span-5 relative group">
 <div class="absolute -inset-4 bg-[#1e1b1d] rounded-xl -rotate-2 group-hover:rotate-0 transition-transform duration-500" aria-hidden="true"></div>
 <div class="relative bg-[#221f21] p-1 rounded-xl shadow-2xl overflow-hidden aspect-[4/5] flex flex-col border border-white/5">
-<div class="flex-grow overflow-hidden">
-<img alt="Atmósfera Fenómeno" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" src="assets/img-01.jpg"/>
+<!-- group anidado: zoom y color solo al pasar por la foto; el marco (padding/borde) no crece -->
+<div class="group flex-grow overflow-hidden">
+<img alt="Atmósfera Fenómeno" class="h-full w-full scale-100 object-cover grayscale transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0" src="assets/img-01.jpg"/>
 </div>
 <!-- Franja cinco colores: referencia TV analógica + paleta marca (se mantiene a petición) -->
 <div class="flex h-32 w-full" role="img" aria-label="Paleta de marca Fenómeno en franja horizontal, estética televisor">
@@ -202,41 +249,42 @@
 <p class="font-body text-[#e2dcc6] text-sm uppercase tracking-widest">Estética &amp; Audio</p>
 </div>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-<div class="p-10 border border-[#3a322f] rounded-none bg-transparent hover:bg-[#1e1b1d] transition-colors group flex flex-col justify-between min-h-[450px]">
-<div>
-<span class="text-4xl font-headline font-black text-[#E63912]/20 group-hover:text-[#E63912] transition-colors">01</span>
-<h3 class="text-3xl font-headline font-bold text-[#e2dcc6] mt-6 leading-tight uppercase">Cultura del sonido</h3>
-<div class="mt-6 overflow-hidden rounded-lg">
-<img alt="Selección de vinilos" class="w-full h-40 object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="assets/img-02.jpg"/>
+<div class="grid grid-cols-1 items-stretch gap-8 md:grid-cols-3">
+<!-- Tarjeta: número → ranura de título (misma altura + texto al fondo) → foto fija → cuerpo; alinea bases de títulos e imágenes entre columnas -->
+<div class="group flex min-h-[450px] flex-col border border-[#3a322f] bg-transparent p-10 transition-colors hover:bg-[#1e1b1d] rounded-none">
+<span class="text-4xl font-headline font-black text-[#E63912]/20 transition-colors group-hover:text-[#E63912]">01</span>
+<div class="mt-6 flex min-h-[5.5rem] shrink-0 flex-col justify-end">
+<h3 class="text-3xl font-headline font-bold uppercase leading-tight text-[#e2dcc6]">Cultura del sonido</h3>
 </div>
+<div class="mt-6 h-40 shrink-0 overflow-hidden rounded-lg">
+<img alt="Selección de vinilos" class="h-full w-full scale-100 object-cover grayscale transition-all duration-500 group-hover:scale-105 group-hover:grayscale-0" src="assets/img-02.jpg"/>
 </div>
-<p class="font-body text-[#e2dcc6]/80 leading-relaxed mt-6">
+<p class="mt-6 font-body leading-relaxed text-[#e2dcc6]/80">
                         No es solo música, es la pureza técnica de un sistema analógico diseñado para sentir cada frecuencia en el pecho.
                     </p>
 </div>
-<div class="p-10 border border-[#3a322f] rounded-none bg-[#1e1b1d] transition-colors group flex flex-col justify-between min-h-[450px]">
-<div>
-<span class="text-4xl font-headline font-black text-[#F5C412]/20 group-hover:text-[#F5C412] transition-colors">02</span>
-<h3 class="text-3xl font-headline font-bold text-[#e2dcc6] mt-6 leading-tight uppercase">Ambiente</h3>
-<div class="mt-6 overflow-hidden rounded-lg">
-<img alt="Interior Fenómeno" class="w-full h-40 object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="assets/img-01.jpg"/>
+<div class="group flex min-h-[450px] flex-col border border-[#3a322f] bg-[#1e1b1d] p-10 transition-colors rounded-none">
+<span class="text-4xl font-headline font-black text-[#F5C412]/20 transition-colors group-hover:text-[#F5C412]">02</span>
+<div class="mt-6 flex min-h-[5.5rem] shrink-0 flex-col justify-end">
+<h3 class="text-3xl font-headline font-bold uppercase leading-tight text-[#e2dcc6]">Ambiente</h3>
 </div>
+<div class="mt-6 h-40 shrink-0 overflow-hidden rounded-lg">
+<img alt="Interior Fenómeno" class="h-full w-full scale-100 object-cover grayscale transition-all duration-500 group-hover:scale-105 group-hover:grayscale-0" src="assets/img-01.jpg"/>
 </div>
-<p class="font-body text-[#e2dcc6]/80 leading-relaxed mt-6">
+<p class="mt-6 font-body leading-relaxed text-[#e2dcc6]/80">
                         Luz tenue, madera noble y el crujido orgánico de la cera. Un refugio analógico en el centro de la capital.
                     </p>
 </div>
-<div class="p-10 border border-[#3a322f] rounded-none bg-transparent hover:bg-[#1e1b1d] transition-colors group flex flex-col justify-between min-h-[450px]">
-<div>
+<div class="group flex min-h-[450px] flex-col border border-[#3a322f] bg-transparent p-10 transition-colors hover:bg-[#1e1b1d] rounded-none">
 <!-- Tercer bloque manifiesto: azul marca (#1266AB) en secuencia 01 rojo / 02 amarillo / 03 azul -->
-<span class="text-4xl font-headline font-black text-[#1266AB]/25 group-hover:text-[#1266AB] transition-colors">03</span>
-<h3 class="text-3xl font-headline font-bold text-[#e2dcc6] mt-6 leading-tight uppercase">Mixología Hi-Fi</h3>
-<div class="mt-6 overflow-hidden rounded-lg">
-<img alt="Cocktail Art" class="w-full h-40 object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="assets/img-03.jpg"/>
+<span class="text-4xl font-headline font-black text-[#1266AB]/25 transition-colors group-hover:text-[#1266AB]">03</span>
+<div class="mt-6 flex min-h-[5.5rem] shrink-0 flex-col justify-end">
+<h3 class="text-3xl font-headline font-bold uppercase leading-tight text-[#e2dcc6]">Mixología Hi-Fi</h3>
 </div>
+<div class="mt-6 h-40 shrink-0 overflow-hidden rounded-lg">
+<img alt="Cocktail Art" class="h-full w-full scale-100 object-cover grayscale transition-all duration-500 group-hover:scale-105 group-hover:grayscale-0" src="assets/img-03.jpg"/>
 </div>
-<p class="font-body text-[#e2dcc6]/80 leading-relaxed mt-6">
+<p class="mt-6 font-body leading-relaxed text-[#e2dcc6]/80">
                         Cócteles de autor que respetan el clásico y una selección de vinilos curada por selectores locales e internacionales.
                     </p>
 </div>
@@ -250,7 +298,7 @@
 <div class="relative mt-12">
 <img alt="Cocktail y vinilo" class="rounded-xl w-full h-80 object-cover" src="assets/img-05.jpg"/>
 <!-- Distintivo circular tipo sticker (alineado a otra pantalla Stitch): esquina inferior derecha de la segunda foto -->
-<div aria-hidden="true" class="absolute z-10 -bottom-5 -right-5 md:-bottom-4 md:-right-4 translate-x-0.5 translate-y-0.5 w-[6.25rem] h-[6.25rem] sm:w-[7rem] sm:h-[7rem] md:w-[8.5rem] md:h-[8.5rem] rounded-full bg-[#F5C412] shadow-[0_12px_40px_rgba(0,0,0,0.35)] flex items-center justify-center text-center p-2 sm:p-3 border border-[#131012]/10 rotate-[15deg] origin-center">
+<div aria-hidden="true" class="fenomeno-curadoria-sticker absolute z-10 -bottom-5 -right-5 flex h-[6.25rem] w-[6.25rem] items-center justify-center rounded-full border border-[#131012]/10 bg-[#F5C412] p-2 text-center shadow-[0_12px_40px_rgba(0,0,0,0.35)] sm:h-[7rem] sm:w-[7rem] sm:p-3 md:-bottom-4 md:-right-4 md:h-[8.5rem] md:w-[8.5rem]">
 <span class="font-headline font-black text-[#131012] text-[0.52rem] sm:text-[0.58rem] md:text-[0.7rem] leading-[1.15] uppercase tracking-tight">Escucha<br/>con<br/>atención</span>
 </div>
 </div>
@@ -287,11 +335,14 @@
 </div>
 </section>
 <section id="programacion" class="max-w-7xl mx-auto px-4 min-[400px]:px-6 sm:px-8 pt-48" aria-labelledby="titulo-newsletter">
-<div class="bg-[#1e1b1d] rounded-3xl overflow-hidden relative min-h-[520px] md:min-h-[500px] flex flex-col md:block">
-<img alt="" class="absolute inset-0 w-full h-full object-cover opacity-40" src="assets/img-06.jpg" role="presentation"/>
-<div class="relative z-10 flex flex-1 flex-col justify-center min-h-0 min-w-0 w-full p-6 min-[400px]:p-8 sm:p-12 md:p-24 md:absolute md:inset-0 md:flex md:items-center">
-<div class="max-w-2xl min-w-0 w-full">
-<h2 class="font-headline font-black text-[#e2dcc6] uppercase mb-4 hyphens-auto break-words text-[clamp(1.65rem,5.2vw+0.85rem,3.75rem)] leading-[0.98] sm:leading-[0.95] md:leading-none tracking-tight sm:tracking-tighter" id="titulo-newsletter" lang="es">
+<div class="bg-[#1e1b1d] rounded-3xl overflow-hidden relative flex min-h-[520px] flex-col md:min-h-[500px]">
+<!-- Foto: referencia social (madera clara + equipo); velo madera #3f241d al 45% — composición normal (sin mix-blend-mode) -->
+<img alt="" class="absolute inset-0 z-0 h-full w-full object-cover" src="assets/img-newsletter-programacion.jpg" role="presentation"/>
+<div aria-hidden="true" class="pointer-events-none absolute inset-0 z-[1] mix-blend-normal bg-[#3f241d]/45"></div>
+<div class="relative z-10 flex min-h-0 w-full flex-1 flex-col items-stretch p-6 min-[400px]:p-8 sm:p-12 md:p-24">
+<div class="flex min-h-0 w-full flex-1 flex-col items-start justify-center">
+<div class="max-w-2xl min-w-0 w-full text-left">
+<h2 class="font-headline font-black text-[#e2dcc6] uppercase mb-4 hyphens-auto break-words text-[clamp(1.65rem,5.2vw+0.85rem,3.75rem)] leading-[0.98] sm:leading-[0.95] md:leading-none tracking-tight sm:tracking-tighter text-left" id="titulo-newsletter" lang="es">
                         Avísame de la<br/><span class="text-[#E63912]">programación</span>
 </h2>
 <p class="font-body text-[#e2dcc6]/70 text-sm mb-8 max-w-md">Cuando haya sesiones o novedades, te escribimos sin abrumar.</p>
@@ -320,9 +371,10 @@
 </form>
 </div>
 </div>
-<p class="relative z-10 shrink-0 mx-6 min-[400px]:mx-8 mb-6 mt-2 sm:mx-12 sm:mb-8 md:mx-0 md:mb-0 md:mt-0 md:absolute md:bottom-8 md:right-8 md:left-auto md:z-20 md:max-w-xs w-auto font-body text-[#e2dcc6]/70 text-[10px] sm:text-xs leading-relaxed text-left md:text-right [text-wrap:balance] bg-[#131012]/88 backdrop-blur-md border border-white/10 rounded-[1rem] px-4 py-3 shadow-lg" id="aviso-newsletter">
+<p class="z-10 mt-6 w-full max-w-none shrink-0 rounded-[1rem] border border-white/10 bg-[#131012]/88 px-4 py-3 font-body text-[10px] leading-relaxed text-left shadow-lg backdrop-blur-md [text-wrap:balance] sm:mt-8 sm:text-xs md:mt-8 md:max-w-xs md:self-end md:text-right lg:absolute lg:bottom-8 lg:right-8 lg:z-20 lg:mt-0 lg:max-w-xs lg:text-right" id="aviso-newsletter">
 <strong class="text-[#e2dcc6]/90">Protección de datos:</strong> el correo se trata para enviarte avisos sobre programación y novedades de Fenómeno. <strong class="text-[#e2dcc6]/85">Base legal:</strong> tu consentimiento (art. 6.1.a RGPD). Puedes retirarlo cuando quieras. <a class="text-[#F5C412] underline underline-offset-2 hover:opacity-90" href="#politica-privacidad">Información ampliada</a> (responsable, plazos, derechos y reclamación ante la AEPD).
             </p>
+</div>
 </div>
 </section>
 </main>
@@ -344,10 +396,10 @@
 <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-[#3a322f]/30 flex flex-col sm:flex-row justify-between items-center gap-4">
 <p class="font-body text-[10px] text-[#e2dcc6]/40 uppercase tracking-[0.3em] text-center sm:text-left">© 2026 Fenómeno — Todos los derechos reservados</p>
 <!-- Acento pie: secuencia marca rojo–amarillo–azul -->
-<div class="flex gap-4" aria-hidden="true">
-<div class="w-2 h-2 rounded-full bg-[#E63912]"></div>
-<div class="w-2 h-2 rounded-full bg-[#F5C412]"></div>
-<div class="w-2 h-2 rounded-full bg-[#1266AB]"></div>
+<div class="flex items-center gap-4" aria-hidden="true">
+<div class="fenomeno-pie-punto h-2 w-2 shrink-0 rounded-full bg-[#E63912]"></div>
+<div class="fenomeno-pie-punto h-2 w-2 shrink-0 rounded-full bg-[#F5C412]"></div>
+<div class="fenomeno-pie-punto h-2 w-2 shrink-0 rounded-full bg-[#1266AB]"></div>
 </div>
 </div>
 <div class="max-w-7xl mx-auto mt-16 px-8 pb-8 space-y-16 border-t border-[#3a322f]/40 pt-12">
