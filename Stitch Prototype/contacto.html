@@ -6,8 +6,9 @@
 <title>Contacto — Fenómeno</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="https://cdn.tailwindcss.com?plugins=container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@700;800;900&amp;family=Newsreader:ital,wght@0,400;1,400&amp;family=Work+Sans:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script>
       tailwind.config = { darkMode: "class", theme: { extend: { fontFamily: { headline: ["Epilogue"], body: ["Work Sans"], label: ["Newsreader"] } } } };
     </script>
@@ -21,6 +22,7 @@
         .legal-body p, .legal-body li { font-size: 0.875rem; line-height: 1.65; color: rgba(226, 220, 198, 0.88); margin-bottom: 0.75rem; }
         .legal-body a { color: #F5C412; text-decoration: underline; text-underline-offset: 2px; }
         .legal-body b, .legal-body strong { color: #e2dcc6; font-weight: 700; }
+        .material-symbols-outlined { font-family: "Material Symbols Outlined"; font-weight: normal; font-style: normal; font-size: 1.5rem; line-height: 1; letter-spacing: normal; text-transform: none; display: inline-block; white-space: nowrap; word-wrap: normal; direction: ltr; font-feature-settings: "liga"; -webkit-font-smoothing: antialiased; }
     </style>
 </head>
 <body class="antialiased">
@@ -41,40 +43,42 @@
 <main id="contenido-principal" class="pt-28 pb-20 px-6 sm:px-8 max-w-4xl mx-auto" tabindex="-1">
 
 <p class="font-label italic text-[#F5C412] text-lg mb-2">Canal humano</p>
-<h1 class="font-headline font-black text-3xl sm:text-4xl text-[#e2dcc6] uppercase tracking-tighter mb-4">¿Quieres contactar a un humano?</h1>
-<p class="text-sm text-[#e2dcc6]/70 mb-10 border-l-2 border-[#1266AB]/40 pl-4 leading-relaxed">El envío del formulario se procesa en la plataforma del grupo. Para Fenómeno en Madrid: <a class="text-[#F5C412] underline" href="mailto:hola@fenomeno.bar">hola@fenomeno.bar</a>.</p>
-<form class="flex flex-col gap-4 max-w-xl" action="https://mandalatickets.com/info/formContacto" method="POST" enctype="multipart/form-data" target="_blank">
-<label class="sr-only" for="booking_name">Nombre</label>
-<input class="w-full rounded-lg border border-[#3a322f] bg-[#1e1b1d] px-4 py-3 text-[#e2dcc6] placeholder-[#e2dcc6]/45" type="text" id="booking_name" name="nombre" placeholder="Nombre" required/>
-<label class="sr-only" for="booking_email">Email</label>
-<input class="w-full rounded-lg border border-[#3a322f] bg-[#1e1b1d] px-4 py-3 text-[#e2dcc6] placeholder-[#e2dcc6]/45" type="email" id="booking_email" name="email" placeholder="Email" required/>
-<label class="sr-only" for="fecha">Fecha estimada de visita</label>
-<input class="w-full rounded-lg border border-[#3a322f] bg-[#1e1b1d] px-4 py-3 text-[#e2dcc6] placeholder-[#e2dcc6]/45" type="text" id="fecha" name="fecha_estimada" placeholder="Fecha estimada de visita (mm/dd/yyyy)" required/>
-<label class="sr-only" for="ciudades">Ciudad planeada para visitar</label>
-<select class="w-full rounded-lg border border-[#3a322f] bg-[#1e1b1d] px-4 py-3 text-[#e2dcc6]" id="ciudades" name="ciudades" required>
-<option value="">Ciudad planeada para visitar</option>
-<option value="CUN" data-id="1">Cancun</option>
-<option value="CDMX" data-id="9">Cdmx</option>
-<option value="FNSM" data-id="7">Fnsm</option>
-<option value="CAB" data-id="4">Los Cabos</option>
-<option value="MAD" data-id="10">Madrid</option>
-<option value="MTY" data-id="8">Monterrey</option>
-<option value="PDC" data-id="2">Playa Del Carmen</option>
-<option value="PVR" data-id="3">Puerto Vallarta</option>
-<option value="TUL" data-id="6">Tulum</option>
-</select>
-<label class="sr-only" for="disco">Establecimiento</label>
-<select class="w-full rounded-lg border border-[#3a322f] bg-[#1e1b1d] px-4 py-3 text-[#e2dcc6]" id="disco" name="disco" required>
-<option value="">Establecimiento</option>
-</select>
-<p class="text-xs text-[#e2dcc6]/50">El listado de establecimientos puede completarse según la ciudad en el flujo completo. Si no ves opciones, escribe a <a class="text-[#F5C412] underline" href="mailto:hola@fenomeno.bar">hola@fenomeno.bar</a>.</p>
-<label class="sr-only" for="pax">Número estimado de personas</label>
-<input class="w-full rounded-lg border border-[#3a322f] bg-[#1e1b1d] px-4 py-3 text-[#e2dcc6] placeholder-[#e2dcc6]/45" type="number" id="pax" name="pax" placeholder="Número estimado de personas" required/>
-<label class="sr-only" for="mensaje">Mensaje</label>
-<textarea class="w-full rounded-lg border border-[#3a322f] bg-[#1e1b1d] px-4 py-3 text-[#e2dcc6] placeholder-[#e2dcc6]/45" id="mensaje" name="mensaje" rows="5" placeholder="Mensaje" required></textarea>
-<p class="text-xs text-[#F5C412]/90">Nota: el destino del formulario puede exigir verificación adicional (p. ej. reCAPTCHA); este prototipo puede no enviar sin esa integración. Si falla, usa <a class="underline" href="mailto:hola@fenomeno.bar">hola@fenomeno.bar</a>.</p>
-<button type="submit" class="font-headline font-bold uppercase tracking-wide rounded-full bg-[#E63912] px-8 py-3 text-white hover:opacity-90 w-full sm:w-auto">Enviar</button>
-</form>
+<h1 class="font-headline font-black text-3xl sm:text-4xl text-[#e2dcc6] uppercase tracking-tighter mb-4">Contacto</h1>
+<p class="text-sm text-[#e2dcc6]/70 mb-10 border-l-2 border-[#1266AB]/40 pl-4 leading-relaxed">Elige el medio que te venga mejor. Fenómeno Madrid: reservas y consultas también por correo e Instagram.</p>
+
+<ul class="flex flex-col gap-4 max-w-xl list-none p-0 m-0" role="list">
+<li>
+<!-- Actualizar href tel: y el número visible con el dato real del local. -->
+<a class="group flex gap-4 items-start rounded-xl border border-[#3a322f] bg-[#1e1b1d] p-5 transition-colors hover:border-[#F5C412]/35 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#F5C412] focus-visible:outline-offset-2" href="tel:+34911222333">
+<span class="material-symbols-outlined text-[#F5C412] shrink-0 mt-0.5" aria-hidden="true">call</span>
+<span class="min-w-0">
+<span class="font-headline font-bold text-xs uppercase tracking-widest text-[#e2dcc6]/60 block mb-1">Teléfono</span>
+<span class="text-[#e2dcc6] font-medium">+34 911 222 333</span>
+</span>
+</a>
+</li>
+<li>
+<a class="group flex gap-4 items-start rounded-xl border border-[#3a322f] bg-[#1e1b1d] p-5 transition-colors hover:border-[#F5C412]/35 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#F5C412] focus-visible:outline-offset-2" href="mailto:hola@fenomeno.bar">
+<span class="material-symbols-outlined text-[#F5C412] shrink-0 mt-0.5" aria-hidden="true">mail</span>
+<span class="min-w-0">
+<span class="font-headline font-bold text-xs uppercase tracking-widest text-[#e2dcc6]/60 block mb-1">Correo</span>
+<span class="text-[#F5C412] font-medium underline decoration-[#F5C412]/40 underline-offset-2 group-hover:decoration-[#F5C412]">hola@fenomeno.bar</span>
+</span>
+</a>
+</li>
+<li>
+<a class="group flex gap-4 items-start rounded-xl border border-[#3a322f] bg-[#1e1b1d] p-5 transition-colors hover:border-[#F5C412]/35 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#F5C412] focus-visible:outline-offset-2" href="https://www.instagram.com/fenomeno.es/" rel="noopener noreferrer" target="_blank">
+<span class="shrink-0 mt-0.5 w-[1.5rem] h-[1.5rem] text-[#F5C412]" aria-hidden="true">
+<svg class="w-full h-full" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+</span>
+<span class="min-w-0">
+<span class="font-headline font-bold text-xs uppercase tracking-widest text-[#e2dcc6]/60 block mb-1">Instagram</span>
+<span class="text-[#e2dcc6] font-medium">@fenomeno.es</span>
+<span class="text-xs text-[#e2dcc6]/45 block mt-1">Se abre en una pestaña nueva.</span>
+</span>
+</a>
+</li>
+</ul>
 
 </main>
 
