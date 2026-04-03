@@ -1,24 +1,22 @@
-# Fenomeno — repo fase diseño
+# Fenómeno — marca, agentes y sitio estático
 
-Repositorio para **marca, agentes, fuentes y diseño en Stitch**. En esta fase **no** incluye un sitio web ejecutable en la raíz.
+Repositorio con **marca**, **skills para agentes**, **diseño en Stitch** y **sitio web estático** servible desde la raíz (`index.html`, `assets/`, contacto y legales).
 
-## Qué sí hay
+## Qué hay
 
 - **[`AGENTS.md`](AGENTS.md)** — contexto para asistentes y límites del proyecto.
-- **[`brand-sources/`](brand-sources/)** — brandbook PNG/PDF y referencias de redes (solo activos).
-- **[`docs/stitch.md`](docs/stitch.md)** — proyecto Stitch, MCP y IDs de pantalla de referencia.
-- **[`.agent/`](.agent/)** — skills y reglas (Fenómeno, implementación web futura).
+- **Sitio público (raíz):** `index.html`, `assets/`, `contacto.html`, páginas legales. Despliegue: raíz del repo en Vercel u otro host estático. Local: `python -m http.server` en la raíz o `serve.cmd`.
+- **[`brand-sources/`](brand-sources/)** — brandbook PNG/PDF y referencias de redes.
+- **[`docs/stitch.md`](docs/stitch.md)** — proyecto Stitch, MCP e IDs de pantalla.
+- **[`scripts/stitch-legal/`](scripts/stitch-legal/README.md)** — fuentes y script para regenerar avisos legales en la raíz.
+- **[`.agent/`](.agent/)** — skills y reglas (Fenómeno, RGPD, implementación opcional).
 - **[`.cursor/mcp.json`](.cursor/mcp.json)** — servidor MCP de Stitch.
-- **[`openspec/`](openspec/)** — esqueleto de especificaciones (OpenSpec).
-- **[`web/README.md`](web/README.md)** — dónde irá la implementación cuando exista milestone.
-
-## Qué no es la raíz ahora
-
-- Sin `package.json` / Vite en raíz hasta el milestone de implementación en **`web/`**.
+- **[`openspec/`](openspec/)** — especificaciones (OpenSpec).
+- **[`web/README.md`](web/README.md)** — carpeta opcional si algún día hubiera bundler/framework (hoy no se usa).
 
 ## Limpieza local (posibles restos)
 
-Si aún ves **`node_modules/`** o **`dist/`** en la raíz del repo, son restos del layout anterior (ya no hay `package.json` ahí). Puedes borrar esas carpetas en tu máquina; siguen ignoradas por git si reaparecen.
+Si ves **`node_modules/`** o **`dist/`** en la raíz, son restos viejos; puedes borrarlos.
 
 ## Enlaces
 

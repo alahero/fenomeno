@@ -3,8 +3,8 @@ import re
 from pathlib import Path
 
 DIR = Path(__file__).resolve().parent
-# Salida del sitio público (despliegue); no mezclar con la carpeta de taller Stitch.
-OUT = DIR.parent / "site"
+# Raíz del repo: ahí vive el sitio estático (index.html, assets/, legales).
+OUT = DIR.parent.parent
 
 FENOMENO_MAIL = "hola@fenomeno.bar"
 FENOMENO_URL = "https://fenomeno.bar"
@@ -155,8 +155,8 @@ def main():
         encoding="utf-8",
     )
 
-    # contacto.html se edita a mano en site/ (canales teléfono, correo, Instagram).
-    print("OK: site/privacidad.html, site/faqs.html, site/terminos.html")
+    # contacto.html se edita a mano en la raíz del repo (canales teléfono, correo, Instagram).
+    print("OK: privacidad.html, faqs.html, terminos.html -> raiz del repo")
 
 
 if __name__ == "__main__":

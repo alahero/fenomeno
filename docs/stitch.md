@@ -19,7 +19,7 @@ Los IDs cambian cuando generas variantes; conviene anotar aquí los que uses com
 
 | Uso | `node-id` (fragmento URL) | Notas |
 |-----|---------------------------|--------|
-| Landing export → sitio estático repo | `0aa97d51fa3041f4ba93bdb5b665fdde` | HTML de producción en [`site/`](../site/README.md); taller en [`Stitch Prototype/`](../Stitch%20Prototype/README.md) |
+| Landing export → sitio estático repo | `0aa97d51fa3041f4ba93bdb5b665fdde` | `index.html` en la raíz del repo; captura PNG en [`docs/stitch/`](stitch/); regeneración legales en [`scripts/stitch-legal/`](../scripts/stitch-legal/README.md) |
 | Landing base (histórica) | `52077d5064c74f45b680f497c2735df8` | Primera landing principal |
 | Variante copy + bar abierto | `aa3b6e5eb94246309ea414a3c1e02548` | Referencia de contenido |
 | Sin patrón de fondo | `51e4e33ecdf74cf090038cc128ca63bb` | Refinamiento visual |

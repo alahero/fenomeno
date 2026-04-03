@@ -1,23 +1,21 @@
 # Fenomeno Agent Context
 
-Repositorio en **fase diseño y especificación**: marca, skills de agente, activos en `brand-sources/`, diseño canónico en **Stitch** (MCP). La **implementación web** no vive en la raíz hasta un milestone explícito.
+Repositorio con **marca, skills de agente**, **sitio estático en la raíz** (`index.html`, `assets/`, legales, contacto), activos en `brand-sources/` y diseño canónico de pantallas en **Stitch** (MCP).
 
 ## Fase actual
 
-- **Diseño UI:** [Stitch — proyecto Fenómeno](https://stitch.withgoogle.com/projects/1368868296218482267). Detalles operativos en [`docs/stitch.md`](docs/stitch.md).
-- **Sitio estático desplegable (hasta milestone `web/`):** carpeta [`site/`](site/README.md) (`index.html`, `assets/`, legales, contacto). Configura el hosting (p. ej. Vercel) con **root** en `site` para no exponer rutas de taller. Fuentes y scripts Stitch viven en [`Stitch Prototype/`](Stitch Prototype/README.md). El milestone en [`web/`](web/README.md) sustituirá esto cuando se active.
+- **Sitio público:** HTML estático en la **raíz del repo** (`index.html`, carpeta `assets/`, `contacto.html`, páginas legales). Despliegue directo (p. ej. Vercel con raíz = repositorio, sin subcarpeta). Vista local: `python -m http.server` en la raíz o doble clic en `serve.cmd`.
+- **Diseño UI:** [Stitch — proyecto Fenómeno](https://stitch.withgoogle.com/projects/1368868296218482267). Detalles en [`docs/stitch.md`](docs/stitch.md).
+- **Regenerar legales:** [`scripts/stitch-legal/_build_legal_pages.py`](scripts/stitch-legal/README.md) (fuentes en la misma carpeta).
 - **Marca y copy:** [`@.agent/skills/fenomeno-brand-guidelines/SKILL.md`](.agent/skills/fenomeno-brand-guidelines/SKILL.md) y [`references/fenomeno-brand-foundation.md`](.agent/skills/fenomeno-brand-guidelines/references/fenomeno-brand-foundation.md).
 - **Activos:** [`brand-sources/README.md`](brand-sources/README.md) (brandbook PNG/PDF, referencias sociales).
-- **Especificaciones:** [`openspec/specs/README.md`](openspec/specs/README.md) y propuestas futuras en `openspec/changes/` cuando apliquen.
+- **Especificaciones:** [`openspec/specs/README.md`](openspec/specs/README.md) y propuestas en `openspec/changes/` cuando apliquen.
 
-## Stack web (futuro, no activo en raíz)
+## Stack web
 
-Cuando se abra el milestone de implementación:
+**Decisión actual:** el producto web es **HTML + Tailwind CDN + JS mínimo** en la raíz; **no** hay aplicación React ni Vite en curso.
 
-- **Previsto:** sitio estático con Vite + React + Tailwind (patrones en [`@.agent/rules/web-implementation.md`](.agent/rules/web-implementation.md)).
-- **Ubicación:** carpeta [`web/`](web/README.md) (scaffold pendiente).
-
-No asumir que `npm run dev` existe en la raíz de este repo en la fase actual.
+La carpeta [`web/`](web/README.md) queda solo como referencia opcional si algún día se migrara a un bundler o framework; no es requisito del proyecto.
 
 ## MCP y Cursor
 
@@ -33,7 +31,7 @@ No asumir que `npm run dev` existe en la raíz de este repo en la fase actual.
 ## Operating Rules
 
 - Keep root instructions lean and delegate details through targeted modules.
-- Follow `@.agent/rules/web-implementation.md` **solo cuando** haya código web en curso en el repo.
+- Follow `@.agent/rules/web-implementation.md` **solo cuando** haya código web en curso en el repo (p. ej. scaffold en `web/`).
 - Trigger `@.agent/skills/brand-guidelines-creator/SKILL.md` when brand analysis or guideline synthesis is requested.
 - Trigger `@.agent/skills/fenomeno-brand-guidelines/SKILL.md` when implementing Fenomeno-specific copy, sections, or UI decisions (Stitch o web).
 - Trigger `@.agent/skills/gdpr-website-compliance/SKILL.md` when auditing or implementing privacy, cookies, forms, third-party integrations, or international data flows for web (RGPD/GDPR + ePrivacy). Full guide (portable): [`.agent/skills/gdpr-website-compliance/references/gdpr-website-compliance.md`](.agent/skills/gdpr-website-compliance/references/gdpr-website-compliance.md). [`docs/gdpr-website-compliance.md`](docs/gdpr-website-compliance.md) is a short pointer to that path.

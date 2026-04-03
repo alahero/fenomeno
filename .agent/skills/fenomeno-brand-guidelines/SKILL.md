@@ -8,7 +8,7 @@ description: Use when implementing Fenomeno (bar Hi-Fi, Madrid) site sections, c
 ## Fuente de verdad
 
 1. Leer y seguir **[`references/fenomeno-brand-foundation.md`](references/fenomeno-brand-foundation.md)** — inventario de placas en `brand-sources/brandbook-png/`, HEX de acento, tipografía citada, frases (placa 18) y voz (placa 19).
-2. Cuando exista implementación web en el repo, alinear con [`@.agent/rules/web-implementation.md`](../../rules/web-implementation.md) (Vite + React + Tailwind u stack acordado).
+2. Implementación web actual: **HTML estático en la raíz del repo** (`index.html`, Tailwind CDN, mismos tokens que Stitch). Si en el futuro hubiera bundler o framework, alinear con [`@.agent/rules/web-implementation.md`](../../rules/web-implementation.md).
 3. **Coming Soon** (`brand-sources/brandbook-png/Fenomento_ComingSoon_Website.png`) y **`brand-sources/social-reference/`** son referencia visual y ambiente; **si hay conflicto con el brandbook (placas 01–43), mandan el brandbook y la foundation**, no una captura suelta ni un mood de red social aislado.
 
 ## Checklist de implementación
@@ -16,7 +16,7 @@ description: Use when implementing Fenomeno (bar Hi-Fi, Madrid) site sections, c
 ### Color
 
 - Acentos canónicos: **`#E63912`** (rojo), **`#F5C412`** (amarillo), **`#1266AB`** (azul). Detalle en la tabla de la foundation.
-- Modo habitual en web: **fondo muy oscuro** (`#131012` como referencia del prototipo archivado y alineado a Stitch), **texto crema** (`#e2dcc6` y derivados para jerarquía), **bordes hairline** (`#3a322f`). Los neutros exactos pueden afinarse cuando el manual fije HEX adicionales.
+- Modo habitual en web: **fondo muy oscuro** (`#131012`, alineado a Stitch), **texto crema** (`#e2dcc6` y derivados para jerarquía), **bordes hairline** (`#3a322f`). Los neutros exactos pueden afinarse cuando el manual fije HEX adicionales.
 - **Jerarquía de acento:** un bloque = **un acento dominante** (rojo *o* amarillo *o* azul en primer plano). Evita empatar los tres en el mismo componente pequeño (botón, chip, badge).
 - El rojo sostiene **impacto editorial** (titulares, énfasis); el amarillo **contraste y etiquetas**; el azul **bloques y contrapeso** frente al calor del rojo/amarillo.
 
