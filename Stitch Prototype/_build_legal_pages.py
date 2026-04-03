@@ -3,6 +3,8 @@ import re
 from pathlib import Path
 
 DIR = Path(__file__).resolve().parent
+# Salida del sitio público (despliegue); no mezclar con la carpeta de taller Stitch.
+OUT = DIR.parent / "site"
 
 FENOMENO_MAIL = "hola@fenomeno.bar"
 FENOMENO_URL = "https://fenomeno.bar"
@@ -119,7 +121,8 @@ def main():
 {priv_inner}
 </div>
 """
-    (DIR / "privacidad.html").write_text(
+    OUT.mkdir(parents=True, exist_ok=True)
+    (OUT / "privacidad.html").write_text(
         wrap_page("Política de privacidad — Fenómeno", priv_main),
         encoding="utf-8",
     )
@@ -133,7 +136,7 @@ def main():
 {faq_sections}
 </div>
 """
-    (DIR / "faqs.html").write_text(
+    (OUT / "faqs.html").write_text(
         wrap_page("FAQs — Fenómeno", faq_main),
         encoding="utf-8",
     )
@@ -147,53 +150,13 @@ def main():
 {term_inner}
 </div>
 """
-    (DIR / "terminos.html").write_text(
+    (OUT / "terminos.html").write_text(
         wrap_page("Términos y condiciones — Fenómeno", term_main),
         encoding="utf-8",
     )
 
-    contact_main = rf"""
-<p class="font-label italic text-[#F5C412] text-lg mb-2">Canal humano</p>
-<h1 class="font-headline font-black text-3xl sm:text-4xl text-[#e2dcc6] uppercase tracking-tighter mb-4">¿Quieres contactar a un humano?</h1>
-<p class="text-sm text-[#e2dcc6]/70 mb-10 border-l-2 border-[#1266AB]/40 pl-4 leading-relaxed">El envío del formulario se procesa en la plataforma del grupo. Para Fenómeno en Madrid: <a class="text-[#F5C412] underline" href="mailto:{FENOMENO_MAIL}">{FENOMENO_MAIL}</a>.</p>
-<form class="flex flex-col gap-4 max-w-xl" action="https://mandalatickets.com/info/formContacto" method="POST" enctype="multipart/form-data" target="_blank">
-<label class="sr-only" for="booking_name">Nombre</label>
-<input class="w-full rounded-lg border border-[#3a322f] bg-[#1e1b1d] px-4 py-3 text-[#e2dcc6] placeholder-[#e2dcc6]/45" type="text" id="booking_name" name="nombre" placeholder="Nombre" required/>
-<label class="sr-only" for="booking_email">Email</label>
-<input class="w-full rounded-lg border border-[#3a322f] bg-[#1e1b1d] px-4 py-3 text-[#e2dcc6] placeholder-[#e2dcc6]/45" type="email" id="booking_email" name="email" placeholder="Email" required/>
-<label class="sr-only" for="fecha">Fecha estimada de visita</label>
-<input class="w-full rounded-lg border border-[#3a322f] bg-[#1e1b1d] px-4 py-3 text-[#e2dcc6] placeholder-[#e2dcc6]/45" type="text" id="fecha" name="fecha_estimada" placeholder="Fecha estimada de visita (mm/dd/yyyy)" required/>
-<label class="sr-only" for="ciudades">Ciudad planeada para visitar</label>
-<select class="w-full rounded-lg border border-[#3a322f] bg-[#1e1b1d] px-4 py-3 text-[#e2dcc6]" id="ciudades" name="ciudades" required>
-<option value="">Ciudad planeada para visitar</option>
-<option value="CUN" data-id="1">Cancun</option>
-<option value="CDMX" data-id="9">Cdmx</option>
-<option value="FNSM" data-id="7">Fnsm</option>
-<option value="CAB" data-id="4">Los Cabos</option>
-<option value="MAD" data-id="10">Madrid</option>
-<option value="MTY" data-id="8">Monterrey</option>
-<option value="PDC" data-id="2">Playa Del Carmen</option>
-<option value="PVR" data-id="3">Puerto Vallarta</option>
-<option value="TUL" data-id="6">Tulum</option>
-</select>
-<label class="sr-only" for="disco">Establecimiento</label>
-<select class="w-full rounded-lg border border-[#3a322f] bg-[#1e1b1d] px-4 py-3 text-[#e2dcc6]" id="disco" name="disco" required>
-<option value="">Establecimiento</option>
-</select>
-<p class="text-xs text-[#e2dcc6]/50">El listado de establecimientos puede completarse según la ciudad en el flujo completo. Si no ves opciones, escribe a <a class="text-[#F5C412] underline" href="mailto:{FENOMENO_MAIL}">{FENOMENO_MAIL}</a>.</p>
-<label class="sr-only" for="pax">Número estimado de personas</label>
-<input class="w-full rounded-lg border border-[#3a322f] bg-[#1e1b1d] px-4 py-3 text-[#e2dcc6] placeholder-[#e2dcc6]/45" type="number" id="pax" name="pax" placeholder="Número estimado de personas" required/>
-<label class="sr-only" for="mensaje">Mensaje</label>
-<textarea class="w-full rounded-lg border border-[#3a322f] bg-[#1e1b1d] px-4 py-3 text-[#e2dcc6] placeholder-[#e2dcc6]/45" id="mensaje" name="mensaje" rows="5" placeholder="Mensaje" required></textarea>
-<p class="text-xs text-[#F5C412]/90">Nota: el destino del formulario puede exigir verificación adicional (p. ej. reCAPTCHA); este prototipo puede no enviar sin esa integración. Si falla, usa <a class="underline" href="mailto:{FENOMENO_MAIL}">{FENOMENO_MAIL}</a>.</p>
-<button type="submit" class="font-headline font-bold uppercase tracking-wide rounded-full bg-[#E63912] px-8 py-3 text-white hover:opacity-90 w-full sm:w-auto">Enviar</button>
-</form>
-"""
-    (DIR / "contacto.html").write_text(
-        wrap_page("Contacto — Fenómeno", contact_main),
-        encoding="utf-8",
-    )
-    print("OK: privacidad.html, faqs.html, terminos.html, contacto.html")
+    # contacto.html se edita a mano en site/ (canales teléfono, correo, Instagram).
+    print("OK: site/privacidad.html, site/faqs.html, site/terminos.html")
 
 
 if __name__ == "__main__":

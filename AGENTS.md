@@ -5,7 +5,7 @@ Repositorio en **fase diseño y especificación**: marca, skills de agente, acti
 ## Fase actual
 
 - **Diseño UI:** [Stitch — proyecto Fenómeno](https://stitch.withgoogle.com/projects/1368868296218482267). Detalles operativos en [`docs/stitch.md`](docs/stitch.md).
-- **Sitio estático desplegable (hasta milestone `web/`):** entrada [`Stitch Prototype/index.html`](Stitch Prototype/README.md) más páginas legales y contacto en la misma carpeta. Es HTML estático listo para hosting (p. ej. Vercel con directorio raíz `Stitch Prototype`); el milestone de implementación en [`web/`](web/README.md) sustituirá esto cuando se active.
+- **Sitio estático desplegable (hasta milestone `web/`):** carpeta [`site/`](site/README.md) (`index.html`, `assets/`, legales, contacto). Configura el hosting (p. ej. Vercel) con **root** en `site` para no exponer rutas de taller. Fuentes y scripts Stitch viven en [`Stitch Prototype/`](Stitch Prototype/README.md). El milestone en [`web/`](web/README.md) sustituirá esto cuando se active.
 - **Marca y copy:** [`@.agent/skills/fenomeno-brand-guidelines/SKILL.md`](.agent/skills/fenomeno-brand-guidelines/SKILL.md) y [`references/fenomeno-brand-foundation.md`](.agent/skills/fenomeno-brand-guidelines/references/fenomeno-brand-foundation.md).
 - **Activos:** [`brand-sources/README.md`](brand-sources/README.md) (brandbook PNG/PDF, referencias sociales).
 - **Especificaciones:** [`openspec/specs/README.md`](openspec/specs/README.md) y propuestas futuras en `openspec/changes/` cuando apliquen.
