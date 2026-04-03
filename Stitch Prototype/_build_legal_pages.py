@@ -1,0 +1,200 @@
+# Ensambla páginas legales del prototipo Fenómeno a partir de HTML extraído (presentación de marca Fenómeno).
+import re
+from pathlib import Path
+
+DIR = Path(__file__).resolve().parent
+
+FENOMENO_MAIL = "hola@fenomeno.bar"
+FENOMENO_URL = "https://fenomeno.bar"
+
+
+def fenomeno_legales_html(html: str) -> str:
+    """Sustituye dominios, marca comercial ajena en pantalla y correos genéricos por Fenómeno."""
+    s = html
+    s = re.sub(r"reservations@mandalaticket\.com", FENOMENO_MAIL, s, flags=re.I)
+    s = re.sub(r"https?://www\.mandalatickets\.com/?", FENOMENO_URL + "/", s, flags=re.I)
+    s = re.sub(r"www\.mandalatickets\.com", "fenomeno.bar", s, flags=re.I)
+    s = re.sub(r"MANDALATICKETS\.COM", "FENÓMENO", s)
+    s = re.sub(r"Mandalatickets\.com", "Fenómeno", s, flags=re.I)
+    s = re.sub(r"MandalaTickets\.com", "Fenómeno", s)
+    s = re.sub(r"\bMANDALATICKETS\b", "FENÓMENO", s)
+    s = re.sub(r"MandalaTickets", "Fenómeno", s)
+    s = re.sub(r"Mandala Tickets", "Fenómeno", s)
+    s = re.sub(r"Mandala Group", "Fenómeno", s)
+    s = re.sub(r"Grupo Mandala", "Fenómeno", s)
+    s = re.sub(r"sitio web oficial de Mandala", "sitio web oficial de Fenómeno", s)
+    s = s.replace(
+        'Los términos "FENÓMENO", "FENÓMENO", "nosotros"',
+        'Los términos "Fenómeno", "nosotros"',
+    )
+    return s
+
+NAV = r"""
+<header class="fixed top-0 w-full z-50 glass-nav border-b border-white/5">
+<nav class="flex flex-wrap justify-between items-center gap-4 px-6 sm:px-8 py-6 w-full max-w-7xl mx-auto" aria-label="Principal">
+<a href="0aa97d51fa3041f4ba93bdb5b665fdde-brand-aligned.html" class="text-2xl font-bold tracking-tighter text-[#E63912] uppercase font-headline">Fenómeno</a>
+<div class="hidden md:flex items-center gap-8 font-headline font-bold text-sm">
+<a class="text-[#e2dcc6] hover:text-[#E63912] transition-colors" href="0aa97d51fa3041f4ba93bdb5b665fdde-brand-aligned.html#inicio">Inicio</a>
+<a class="text-[#e2dcc6] hover:text-[#E63912] transition-colors" href="0aa97d51fa3041f4ba93bdb5b665fdde-brand-aligned.html#manifiesto">Manifiesto</a>
+<a class="text-[#e2dcc6] hover:text-[#E63912] transition-colors" href="0aa97d51fa3041f4ba93bdb5b665fdde-brand-aligned.html#curaduria">Curaduría</a>
+<a class="text-[#e2dcc6] hover:text-[#E63912] transition-colors" href="contacto.html">Contacto</a>
+</div>
+<a href="0aa97d51fa3041f4ba93bdb5b665fdde-brand-aligned.html#inicio" class="bg-[#E63912] text-white px-6 py-2 rounded-full font-headline font-bold text-sm hover:opacity-90 shrink-0">Pedir mesa</a>
+</nav>
+</header>
+"""
+
+FOOT = r"""
+<footer class="bg-[#1e1b1d] w-full py-10 px-8 border-t border-white/5">
+<div class="max-w-7xl mx-auto flex flex-col gap-6">
+<div class="flex flex-wrap gap-x-6 gap-y-2 justify-center md:justify-start font-headline font-bold text-xs uppercase tracking-widest">
+<a class="text-[#e2dcc6]/70 hover:text-[#F5C412] transition-colors" href="https://www.instagram.com/fenomeno.es/" rel="noopener noreferrer" target="_blank">Instagram</a>
+<a class="text-[#e2dcc6]/70 hover:text-[#F5C412] transition-colors" href="contacto.html">Contacto</a>
+<a class="text-[#e2dcc6]/70 hover:text-[#F5C412] transition-colors" href="privacidad.html">Privacidad</a>
+<a class="text-[#e2dcc6]/70 hover:text-[#F5C412] transition-colors" href="faqs.html">FAQs</a>
+<a class="text-[#e2dcc6]/70 hover:text-[#F5C412] transition-colors" href="terminos.html">Términos y Condiciones</a>
+<a class="text-[#e2dcc6]/70 hover:text-[#F5C412] transition-colors" href="cumplimiento-rgpd.html">Cumplimiento del RGPD</a>
+</div>
+<p class="font-body text-[10px] text-[#e2dcc6]/40 uppercase tracking-[0.3em] text-center md:text-left">© 2026 Fenómeno</p>
+</div>
+</footer>
+"""
+
+HEAD = """<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>{title}</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@700;800;900&amp;family=Newsreader:ital,wght@0,400;1,400&amp;family=Work+Sans:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<script>
+      tailwind.config = {{ darkMode: "class", theme: {{ extend: {{ fontFamily: {{ headline: ["Epilogue"], body: ["Work Sans"], label: ["Newsreader"] }} }} }} }};
+    </script>
+<style type="text/tailwindcss">
+        body {{ background-color: #131012; color: #e2dcc6; font-family: "Work Sans", sans-serif; background-image: radial-gradient(circle at center, #1c181a 0%, #131012 100%); background-attachment: fixed; }}
+        .glass-nav {{ background: rgba(19, 16, 18, 0.8); backdrop-filter: blur(12px); }}
+        a:focus-visible, button:focus-visible {{ outline: 2px solid #F5C412; outline-offset: 3px; }}
+        .skip-link {{ position: absolute; left: 1rem; top: 1rem; z-index: 100; padding: 0.5rem 1rem; background: #E63912; color: #fff; font-weight: 700; font-size: 0.875rem; text-transform: uppercase; border-radius: 9999px; transform: translateY(-200%); transition: transform 0.2s ease; }}
+        .skip-link:focus {{ transform: translateY(0); }}
+        .legal-body h2 {{ font-family: Epilogue, sans-serif; font-weight: 800; font-size: 1rem; color: #F5C412; text-transform: uppercase; letter-spacing: 0.04em; margin-top: 1.75rem; margin-bottom: 0.5rem; }}
+        .legal-body p, .legal-body li {{ font-size: 0.875rem; line-height: 1.65; color: rgba(226, 220, 198, 0.88); margin-bottom: 0.75rem; }}
+        .legal-body a {{ color: #F5C412; text-decoration: underline; text-underline-offset: 2px; }}
+        .legal-body b, .legal-body strong {{ color: #e2dcc6; font-weight: 700; }}
+    </style>
+</head>
+<body class="antialiased">
+<a class="skip-link font-headline" href="#contenido-principal">Saltar al contenido</a>
+"""
+
+
+def wrap_page(title: str, main_inner: str) -> str:
+    return (
+        HEAD.format(title=title)
+        + NAV
+        + f'<main id="contenido-principal" class="pt-28 pb-20 px-6 sm:px-8 max-w-4xl mx-auto" tabindex="-1">\n{main_inner}\n</main>\n'
+        + FOOT
+        + "</body></html>"
+    )
+
+
+def main():
+    priv_inner = (DIR / "_extracted_privacidad_inner.html").read_text(encoding="utf-8")
+    if not priv_inner.lstrip().startswith("<"):
+        priv_inner = "<p>" + priv_inner
+    # Ancla cookies para enlaces desde el prototipo principal
+    priv_inner = priv_inner.replace(
+        "<h2>4. Política de Cookies</h2>",
+        '<h2 id="cookies">4. Política de Cookies</h2>',
+        1,
+    )
+    priv_inner = fenomeno_legales_html(priv_inner)
+    priv_main = f"""
+<p class="font-label italic text-[#F5C412] text-lg mb-2">Documentación del grupo</p>
+<h1 class="font-headline font-black text-3xl sm:text-4xl text-[#e2dcc6] uppercase tracking-tighter mb-4">Aviso de privacidad</h1>
+<p class="text-sm text-[#e2dcc6]/70 mb-8 border-l-2 border-[#1266AB]/40 pl-4 leading-relaxed">Consultas sobre privacidad en el local Fenómeno (Madrid): <a class="text-[#F5C412] underline" href="mailto:{FENOMENO_MAIL}">{FENOMENO_MAIL}</a>.</p>
+<div class="legal-body text-justify">
+{priv_inner}
+</div>
+"""
+    (DIR / "privacidad.html").write_text(
+        wrap_page("Política de privacidad — Fenómeno", priv_main),
+        encoding="utf-8",
+    )
+
+    faq_sections = fenomeno_legales_html((DIR / "_faq_sections.html").read_text(encoding="utf-8"))
+    faq_main = f"""
+<p class="font-label italic text-[#F5C412] text-lg mb-2">Preguntas frecuentes</p>
+<h1 class="font-headline font-black text-3xl sm:text-4xl text-[#e2dcc6] uppercase tracking-tighter mb-4">F.A.Q.S</h1>
+<p class="text-sm text-[#e2dcc6]/70 mb-10 border-l-2 border-[#1266AB]/40 pl-4 leading-relaxed">Dudas por correo: <a class="text-[#F5C412] underline" href="mailto:{FENOMENO_MAIL}">{FENOMENO_MAIL}</a>.</p>
+<div class="space-y-2">
+{faq_sections}
+</div>
+"""
+    (DIR / "faqs.html").write_text(
+        wrap_page("FAQs — Fenómeno", faq_main),
+        encoding="utf-8",
+    )
+
+    term_inner = fenomeno_legales_html((DIR / "_extracted_terminos_inner.html").read_text(encoding="utf-8"))
+    term_main = f"""
+<p class="font-label italic text-[#F5C412] text-lg mb-2">Marco legal del grupo</p>
+<h1 class="font-headline font-black text-2xl sm:text-3xl text-[#e2dcc6] uppercase tracking-tighter mb-4 text-center">Términos y condiciones generales</h1>
+<p class="text-sm text-[#e2dcc6]/70 mb-10 border-l-2 border-[#1266AB]/40 pl-4 leading-relaxed">Aplican a reservas y uso de la plataforma del grupo, junto con las condiciones específicas de cada centro. Contacto: <a class="text-[#F5C412] underline" href="mailto:{FENOMENO_MAIL}">{FENOMENO_MAIL}</a>.</p>
+<div class="legal-body text-justify overflow-x-auto">
+{term_inner}
+</div>
+"""
+    (DIR / "terminos.html").write_text(
+        wrap_page("Términos y condiciones — Fenómeno", term_main),
+        encoding="utf-8",
+    )
+
+    contact_main = rf"""
+<p class="font-label italic text-[#F5C412] text-lg mb-2">Canal humano</p>
+<h1 class="font-headline font-black text-3xl sm:text-4xl text-[#e2dcc6] uppercase tracking-tighter mb-4">¿Quieres contactar a un humano?</h1>
+<p class="text-sm text-[#e2dcc6]/70 mb-10 border-l-2 border-[#1266AB]/40 pl-4 leading-relaxed">El envío del formulario se procesa en la plataforma del grupo. Para Fenómeno en Madrid: <a class="text-[#F5C412] underline" href="mailto:{FENOMENO_MAIL}">{FENOMENO_MAIL}</a>.</p>
+<form class="flex flex-col gap-4 max-w-xl" action="https://mandalatickets.com/info/formContacto" method="POST" enctype="multipart/form-data" target="_blank">
+<label class="sr-only" for="booking_name">Nombre</label>
+<input class="w-full rounded-lg border border-[#3a322f] bg-[#1e1b1d] px-4 py-3 text-[#e2dcc6] placeholder-[#e2dcc6]/45" type="text" id="booking_name" name="nombre" placeholder="Nombre" required/>
+<label class="sr-only" for="booking_email">Email</label>
+<input class="w-full rounded-lg border border-[#3a322f] bg-[#1e1b1d] px-4 py-3 text-[#e2dcc6] placeholder-[#e2dcc6]/45" type="email" id="booking_email" name="email" placeholder="Email" required/>
+<label class="sr-only" for="fecha">Fecha estimada de visita</label>
+<input class="w-full rounded-lg border border-[#3a322f] bg-[#1e1b1d] px-4 py-3 text-[#e2dcc6] placeholder-[#e2dcc6]/45" type="text" id="fecha" name="fecha_estimada" placeholder="Fecha estimada de visita (mm/dd/yyyy)" required/>
+<label class="sr-only" for="ciudades">Ciudad planeada para visitar</label>
+<select class="w-full rounded-lg border border-[#3a322f] bg-[#1e1b1d] px-4 py-3 text-[#e2dcc6]" id="ciudades" name="ciudades" required>
+<option value="">Ciudad planeada para visitar</option>
+<option value="CUN" data-id="1">Cancun</option>
+<option value="CDMX" data-id="9">Cdmx</option>
+<option value="FNSM" data-id="7">Fnsm</option>
+<option value="CAB" data-id="4">Los Cabos</option>
+<option value="MAD" data-id="10">Madrid</option>
+<option value="MTY" data-id="8">Monterrey</option>
+<option value="PDC" data-id="2">Playa Del Carmen</option>
+<option value="PVR" data-id="3">Puerto Vallarta</option>
+<option value="TUL" data-id="6">Tulum</option>
+</select>
+<label class="sr-only" for="disco">Establecimiento</label>
+<select class="w-full rounded-lg border border-[#3a322f] bg-[#1e1b1d] px-4 py-3 text-[#e2dcc6]" id="disco" name="disco" required>
+<option value="">Establecimiento</option>
+</select>
+<p class="text-xs text-[#e2dcc6]/50">El listado de establecimientos puede completarse según la ciudad en el flujo completo. Si no ves opciones, escribe a <a class="text-[#F5C412] underline" href="mailto:{FENOMENO_MAIL}">{FENOMENO_MAIL}</a>.</p>
+<label class="sr-only" for="pax">Número estimado de personas</label>
+<input class="w-full rounded-lg border border-[#3a322f] bg-[#1e1b1d] px-4 py-3 text-[#e2dcc6] placeholder-[#e2dcc6]/45" type="number" id="pax" name="pax" placeholder="Número estimado de personas" required/>
+<label class="sr-only" for="mensaje">Mensaje</label>
+<textarea class="w-full rounded-lg border border-[#3a322f] bg-[#1e1b1d] px-4 py-3 text-[#e2dcc6] placeholder-[#e2dcc6]/45" id="mensaje" name="mensaje" rows="5" placeholder="Mensaje" required></textarea>
+<p class="text-xs text-[#F5C412]/90">Nota: el destino del formulario puede exigir verificación adicional (p. ej. reCAPTCHA); este prototipo puede no enviar sin esa integración. Si falla, usa <a class="underline" href="mailto:{FENOMENO_MAIL}">{FENOMENO_MAIL}</a>.</p>
+<button type="submit" class="font-headline font-bold uppercase tracking-wide rounded-full bg-[#E63912] px-8 py-3 text-white hover:opacity-90 w-full sm:w-auto">Enviar</button>
+</form>
+"""
+    (DIR / "contacto.html").write_text(
+        wrap_page("Contacto — Fenómeno", contact_main),
+        encoding="utf-8",
+    )
+    print("OK: privacidad.html, faqs.html, terminos.html, contacto.html")
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contacto — Fenómeno</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@700;800;900&amp;family=Newsreader:ital,wght@0,400;1,400&amp;family=Work+Sans:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<script>
+      tailwind.config = { darkMode: "class", theme: { extend: { fontFamily: { headline: ["Epilogue"], body: ["Work Sans"], label: ["Newsreader"] } } } };
+    </script>
+<style type="text/tailwindcss">
+        body { background-color: #131012; color: #e2dcc6; font-family: "Work Sans", sans-serif; background-image: radial-gradient(circle at center, #1c181a 0%, #131012 100%); background-attachment: fixed; }
+        .glass-nav { background: rgba(19, 16, 18, 0.8); backdrop-filter: blur(12px); }
+        a:focus-visible, button:focus-visible { outline: 2px solid #F5C412; outline-offset: 3px; }
+        .skip-link { position: absolute; left: 1rem; top: 1rem; z-index: 100; padding: 0.5rem 1rem; background: #E63912; color: #fff; font-weight: 700; font-size: 0.875rem; text-transform: uppercase; border-radius: 9999px; transform: translateY(-200%); transition: transform 0.2s ease; }
+        .skip-link:focus { transform: translateY(0); }
+        .legal-body h2 { font-family: Epilogue, sans-serif; font-weight: 800; font-size: 1rem; color: #F5C412; text-transform: uppercase; letter-spacing: 0.04em; margin-top: 1.75rem; margin-bottom: 0.5rem; }
+        .legal-body p, .legal-body li { font-size: 0.875rem; line-height: 1.65; color: rgba(226, 220, 198, 0.88); margin-bottom: 0.75rem; }
+        .legal-body a { color: #F5C412; text-decoration: underline; text-underline-offset: 2px; }
+        .legal-body b, .legal-body strong { color: #e2dcc6; font-weight: 700; }
+    </style>
+</head>
+<body class="antialiased">
+<a class="skip-link font-headline" href="#contenido-principal">Saltar al contenido</a>
+
+<header class="fixed top-0 w-full z-50 glass-nav border-b border-white/5">
+<nav class="flex flex-wrap justify-between items-center gap-4 px-6 sm:px-8 py-6 w-full max-w-7xl mx-auto" aria-label="Principal">
+<a href="0aa97d51fa3041f4ba93bdb5b665fdde-brand-aligned.html" class="text-2xl font-bold tracking-tighter text-[#E63912] uppercase font-headline">Fenómeno</a>
+<div class="hidden md:flex items-center gap-8 font-headline font-bold text-sm">
+<a class="text-[#e2dcc6] hover:text-[#E63912] transition-colors" href="0aa97d51fa3041f4ba93bdb5b665fdde-brand-aligned.html#inicio">Inicio</a>
+<a class="text-[#e2dcc6] hover:text-[#E63912] transition-colors" href="0aa97d51fa3041f4ba93bdb5b665fdde-brand-aligned.html#manifiesto">Manifiesto</a>
+<a class="text-[#e2dcc6] hover:text-[#E63912] transition-colors" href="0aa97d51fa3041f4ba93bdb5b665fdde-brand-aligned.html#curaduria">Curaduría</a>
+<a class="text-[#e2dcc6] hover:text-[#E63912] transition-colors" href="contacto.html">Contacto</a>
+</div>
+<a href="0aa97d51fa3041f4ba93bdb5b665fdde-brand-aligned.html#inicio" class="bg-[#E63912] text-white px-6 py-2 rounded-full font-headline font-bold text-sm hover:opacity-90 shrink-0">Pedir mesa</a>
+</nav>
+</header>
+<main id="contenido-principal" class="pt-28 pb-20 px-6 sm:px-8 max-w-4xl mx-auto" tabindex="-1">
+
+<p class="font-label italic text-[#F5C412] text-lg mb-2">Canal humano</p>
+<h1 class="font-headline font-black text-3xl sm:text-4xl text-[#e2dcc6] uppercase tracking-tighter mb-4">¿Quieres contactar a un humano?</h1>
+<p class="text-sm text-[#e2dcc6]/70 mb-10 border-l-2 border-[#1266AB]/40 pl-4 leading-relaxed">El envío del formulario se procesa en la plataforma del grupo. Para Fenómeno en Madrid: <a class="text-[#F5C412] underline" href="mailto:hola@fenomeno.bar">hola@fenomeno.bar</a>.</p>
+<form class="flex flex-col gap-4 max-w-xl" action="https://mandalatickets.com/info/formContacto" method="POST" enctype="multipart/form-data" target="_blank">
+<label class="sr-only" for="booking_name">Nombre</label>
+<input class="w-full rounded-lg border border-[#3a322f] bg-[#1e1b1d] px-4 py-3 text-[#e2dcc6] placeholder-[#e2dcc6]/45" type="text" id="booking_name" name="nombre" placeholder="Nombre" required/>
+<label class="sr-only" for="booking_email">Email</label>
+<input class="w-full rounded-lg border border-[#3a322f] bg-[#1e1b1d] px-4 py-3 text-[#e2dcc6] placeholder-[#e2dcc6]/45" type="email" id="booking_email" name="email" placeholder="Email" required/>
+<label class="sr-only" for="fecha">Fecha estimada de visita</label>
+<input class="w-full rounded-lg border border-[#3a322f] bg-[#1e1b1d] px-4 py-3 text-[#e2dcc6] placeholder-[#e2dcc6]/45" type="text" id="fecha" name="fecha_estimada" placeholder="Fecha estimada de visita (mm/dd/yyyy)" required/>
+<label class="sr-only" for="ciudades">Ciudad planeada para visitar</label>
+<select class="w-full rounded-lg border border-[#3a322f] bg-[#1e1b1d] px-4 py-3 text-[#e2dcc6]" id="ciudades" name="ciudades" required>
+<option value="">Ciudad planeada para visitar</option>
+<option value="CUN" data-id="1">Cancun</option>
+<option value="CDMX" data-id="9">Cdmx</option>
+<option value="FNSM" data-id="7">Fnsm</option>
+<option value="CAB" data-id="4">Los Cabos</option>
+<option value="MAD" data-id="10">Madrid</option>
+<option value="MTY" data-id="8">Monterrey</option>
+<option value="PDC" data-id="2">Playa Del Carmen</option>
+<option value="PVR" data-id="3">Puerto Vallarta</option>
+<option value="TUL" data-id="6">Tulum</option>
+</select>
+<label class="sr-only" for="disco">Establecimiento</label>
+<select class="w-full rounded-lg border border-[#3a322f] bg-[#1e1b1d] px-4 py-3 text-[#e2dcc6]" id="disco" name="disco" required>
+<option value="">Establecimiento</option>
+</select>
+<p class="text-xs text-[#e2dcc6]/50">El listado de establecimientos puede completarse según la ciudad en el flujo completo. Si no ves opciones, escribe a <a class="text-[#F5C412] underline" href="mailto:hola@fenomeno.bar">hola@fenomeno.bar</a>.</p>
+<label class="sr-only" for="pax">Número estimado de personas</label>
+<input class="w-full rounded-lg border border-[#3a322f] bg-[#1e1b1d] px-4 py-3 text-[#e2dcc6] placeholder-[#e2dcc6]/45" type="number" id="pax" name="pax" placeholder="Número estimado de personas" required/>
+<label class="sr-only" for="mensaje">Mensaje</label>
+<textarea class="w-full rounded-lg border border-[#3a322f] bg-[#1e1b1d] px-4 py-3 text-[#e2dcc6] placeholder-[#e2dcc6]/45" id="mensaje" name="mensaje" rows="5" placeholder="Mensaje" required></textarea>
+<p class="text-xs text-[#F5C412]/90">Nota: el destino del formulario puede exigir verificación adicional (p. ej. reCAPTCHA); este prototipo puede no enviar sin esa integración. Si falla, usa <a class="underline" href="mailto:hola@fenomeno.bar">hola@fenomeno.bar</a>.</p>
+<button type="submit" class="font-headline font-bold uppercase tracking-wide rounded-full bg-[#E63912] px-8 py-3 text-white hover:opacity-90 w-full sm:w-auto">Enviar</button>
+</form>
+
+</main>
+
+<footer class="bg-[#1e1b1d] w-full py-10 px-8 border-t border-white/5">
+<div class="max-w-7xl mx-auto flex flex-col gap-6">
+<div class="flex flex-wrap gap-x-6 gap-y-2 justify-center md:justify-start font-headline font-bold text-xs uppercase tracking-widest">
+<a class="text-[#e2dcc6]/70 hover:text-[#F5C412] transition-colors" href="https://www.instagram.com/fenomeno.es/" rel="noopener noreferrer" target="_blank">Instagram</a>
+<a class="text-[#e2dcc6]/70 hover:text-[#F5C412] transition-colors" href="contacto.html">Contacto</a>
+<a class="text-[#e2dcc6]/70 hover:text-[#F5C412] transition-colors" href="privacidad.html">Privacidad</a>
+<a class="text-[#e2dcc6]/70 hover:text-[#F5C412] transition-colors" href="faqs.html">FAQs</a>
+<a class="text-[#e2dcc6]/70 hover:text-[#F5C412] transition-colors" href="terminos.html">Términos y Condiciones</a>
+<a class="text-[#e2dcc6]/70 hover:text-[#F5C412] transition-colors" href="cumplimiento-rgpd.html">Cumplimiento del RGPD</a>
+</div>
+<p class="font-body text-[10px] text-[#e2dcc6]/40 uppercase tracking-[0.3em] text-center md:text-left">© 2026 Fenómeno</p>
+</div>
+</footer>
+</body></html>
