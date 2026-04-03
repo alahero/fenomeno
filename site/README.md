@@ -6,13 +6,19 @@ HTML listo para producción: landing (`index.html`), contacto y páginas legales
 
 En el proyecto de Vercel, configura **Root Directory** como `site` (raíz del repo = carpeta del repositorio; el “root” del deploy = esta carpeta). Así la URL sirve `/` → `index.html` sin prefijos tipo `Stitch Prototype/`.
 
-Vista local desde aquí:
+Vista local desde **esta carpeta `site/`** (no desde `Stitch Prototype/`):
 
 ```bash
 python -m http.server 8765
 ```
 
 Abre `http://127.0.0.1:8765/`.
+
+En Windows puedes hacer doble clic en **`serve.cmd`** (o ejecutar `.\serve.ps1`); levanta el sitio en `http://127.0.0.1:8080/`.
+
+### Si ves un listado con `_build_legal_pages.py` y no hay `index.html`
+
+Estás sirviendo **`Stitch Prototype/`** por error. Cierra ese servidor (Ctrl+C), entra a **`site/`** y vuelve a arrancar el comando (o usa `serve.cmd`).
 
 ## Origen del contenido
 
