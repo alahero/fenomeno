@@ -8,6 +8,7 @@ OUT = DIR.parent.parent
 
 FENOMENO_MAIL = "hola@fenomeno.bar"
 FENOMENO_URL = "https://fenomeno.bar"
+OG_IMAGE_PATH = "/assets/og/og-default.jpg"
 
 
 def fenomeno_legales_html(html: str) -> str:
@@ -35,7 +36,7 @@ NAV = r"""
 <header class="fixed top-0 w-full z-50 glass-nav border-b border-white/5">
 <nav class="flex flex-wrap justify-between items-center gap-4 px-6 sm:px-8 py-6 w-full max-w-7xl mx-auto" aria-label="Principal">
 <a href="index.html" class="inline-flex items-center shrink-0 h-8 max-h-8 focus-visible:outline-offset-4" aria-label="Fenómeno — inicio">
-<img src="assets/SVG/Logo.svg" alt="" width="200" height="60" class="h-8 w-auto max-w-[min(11rem,46vw)] object-contain object-left" decoding="async"/>
+<img src="assets/SVG/Logo.svg" alt="Fenómeno" width="200" height="60" class="h-8 w-auto max-w-[min(11rem,46vw)] object-contain object-left" decoding="async"/>
 </a>
 <div class="hidden md:flex items-center gap-8 font-headline font-bold text-sm">
 <a class="text-[#e2dcc6] hover:text-[#E63912] transition-colors" href="index.html#inicio">Inicio</a>
@@ -43,7 +44,7 @@ NAV = r"""
 <a class="text-[#e2dcc6] hover:text-[#E63912] transition-colors" href="index.html#curaduria">Curaduría</a>
 <a class="text-[#e2dcc6] hover:text-[#E63912] transition-colors" href="contacto.html">Contacto</a>
 </div>
-<a href="index.html#inicio" class="bg-[#E63912] text-white px-6 py-2 rounded-full font-headline font-bold text-sm hover:opacity-90 shrink-0">Pedir mesa</a>
+<a href="index.html#inicio" class="bg-[#E63912] text-white px-6 py-2 rounded-full font-headline font-bold text-sm hover:opacity-90 shrink-0">Reservar mesa</a>
 </nav>
 </header>
 """
@@ -59,9 +60,13 @@ FOOT = r"""
 <a class="text-[#e2dcc6]/70 hover:text-[#F5C412] transition-colors" href="terminos.html">Términos y Condiciones</a>
 <a class="text-[#e2dcc6]/70 hover:text-[#F5C412] transition-colors" href="cumplimiento-rgpd.html">Cumplimiento del RGPD</a>
 </div>
-<p class="font-body text-[10px] text-[#e2dcc6]/40 uppercase tracking-[0.3em] text-center md:text-left">© 2026 Fenómeno</p>
+<p class="font-body text-[10px] text-[#e2dcc6]/40 uppercase tracking-[0.3em] text-center md:text-left">© <span class="js-ano-legal">2026</span> Fenómeno</p>
 </div>
 </footer>
+"""
+
+YEAR_SCRIPT = """
+<script>(function(){var n=document.querySelectorAll(".js-ano-legal"),y=String(new Date().getFullYear()),i;for(i=0;i<n.length;i++){n[i].textContent=y;}})();</script>
 """
 
 HEAD = """<!DOCTYPE html>
@@ -69,8 +74,24 @@ HEAD = """<!DOCTYPE html>
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link rel="icon" href="assets/SVG/Favicon-light.svg" type="image/svg+xml" media="(prefers-color-scheme: light)"/>
+<link rel="icon" href="assets/SVG/Favicon.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)"/>
 <link rel="icon" href="assets/SVG/Favicon.svg" type="image/svg+xml"/>
 <title>{title}</title>
+<meta name="description" content="{description}"/>
+<link rel="canonical" href="{canonical_url}"/>
+<meta property="og:title" content="{og_title}"/>
+<meta property="og:description" content="{description}"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="{canonical_url}"/>
+<meta property="og:image" content="{og_image}"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:locale" content="es_ES"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="{og_title}"/>
+<meta name="twitter:description" content="{description}"/>
+<meta name="twitter:image" content="{og_image}"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -95,12 +116,23 @@ HEAD = """<!DOCTYPE html>
 """
 
 
-def wrap_page(title: str, main_inner: str) -> str:
+def wrap_page(title: str, description: str, canonical_path: str, main_inner: str) -> str:
+    base = FENOMENO_URL.rstrip("/")
+    canonical_url = f"{base}/{canonical_path.lstrip('/')}"
+    og_image = f"{base}{OG_IMAGE_PATH}"
+    head_html = HEAD.format(
+        title=title,
+        description=description,
+        canonical_url=canonical_url,
+        og_title=title,
+        og_image=og_image,
+    )
     return (
-        HEAD.format(title=title)
+        head_html
         + NAV
         + f'<main id="contenido-principal" class="pt-28 pb-20 px-6 sm:px-8 max-w-4xl mx-auto" tabindex="-1">\n{main_inner}\n</main>\n'
         + FOOT
+        + YEAR_SCRIPT
         + "</body></html>"
     )
 
@@ -110,23 +142,30 @@ def main():
     if not priv_inner.lstrip().startswith("<"):
         priv_inner = "<p>" + priv_inner
     # Ancla cookies para enlaces desde el prototipo principal
-    priv_inner = priv_inner.replace(
-        "<h2>4. Política de Cookies</h2>",
-        '<h2 id="cookies">4. Política de Cookies</h2>',
-        1,
-    )
+    # Ancla #cookies: si el fragmento ya trae id="cookies", no sustituir.
+    if '<h2 id="cookies">' not in priv_inner:
+        priv_inner = priv_inner.replace(
+            "<h2>4. Política de Cookies</h2>",
+            '<h2 id="cookies">4. Política de Cookies</h2>',
+            1,
+        )
     priv_inner = fenomeno_legales_html(priv_inner)
     priv_main = f"""
-<p class="font-label italic text-[#F5C412] text-lg mb-2">Documentación del grupo</p>
+<p class="font-label italic text-[#F5C412] text-lg mb-2">Información legal</p>
 <h1 class="font-headline font-black text-3xl sm:text-4xl text-[#e2dcc6] uppercase tracking-tighter mb-4">Aviso de privacidad</h1>
-<p class="text-sm text-[#e2dcc6]/70 mb-8 border-l-2 border-[#1266AB]/40 pl-4 leading-relaxed">Consultas sobre privacidad en el local Fenómeno (Madrid): <a class="text-[#F5C412] underline" href="mailto:{FENOMENO_MAIL}">{FENOMENO_MAIL}</a>.</p>
+<p class="text-sm text-[#e2dcc6]/70 mb-8 border-l-2 border-[#1266AB]/40 pl-4 leading-relaxed">Consultas sobre protección de datos (Fenómeno, Madrid): <a class="text-[#F5C412] underline" href="mailto:{FENOMENO_MAIL}">{FENOMENO_MAIL}</a>.</p>
 <div class="legal-body text-justify">
 {priv_inner}
 </div>
 """
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / "privacidad.html").write_text(
-        wrap_page("Política de privacidad — Fenómeno", priv_main),
+        wrap_page(
+            "Política de privacidad — Fenómeno",
+            "Privacidad Fenómeno Madrid: tratamiento de datos, cookies, RGPD y derechos. Contacto hola@fenomeno.bar. Sitio informativo.",
+            "privacidad.html",
+            priv_main,
+        ),
         encoding="utf-8",
     )
 
@@ -134,27 +173,37 @@ def main():
     faq_main = f"""
 <p class="font-label italic text-[#F5C412] text-lg mb-2">Preguntas frecuentes</p>
 <h1 class="font-headline font-black text-3xl sm:text-4xl text-[#e2dcc6] uppercase tracking-tighter mb-4">F.A.Q.S</h1>
-<p class="text-sm text-[#e2dcc6]/70 mb-10 border-l-2 border-[#1266AB]/40 pl-4 leading-relaxed">Dudas por correo: <a class="text-[#F5C412] underline" href="mailto:{FENOMENO_MAIL}">{FENOMENO_MAIL}</a>.</p>
+<p class="text-sm text-[#e2dcc6]/70 mb-10 border-l-2 border-[#1266AB]/40 pl-4 leading-relaxed">Si te queda alguna duda, escríbenos a <a class="text-[#F5C412] underline" href="mailto:{FENOMENO_MAIL}">{FENOMENO_MAIL}</a>.</p>
 <div class="space-y-2">
 {faq_sections}
 </div>
 """
     (OUT / "faqs.html").write_text(
-        wrap_page("FAQs — Fenómeno", faq_main),
+        wrap_page(
+            "FAQs — Fenómeno",
+            "Preguntas frecuentes Fenómeno: reservas, edad mínima, bar Hi-Fi en Recoletos, horarios y contacto en Madrid.",
+            "faqs.html",
+            faq_main,
+        ),
         encoding="utf-8",
     )
 
     term_inner = fenomeno_legales_html((DIR / "_extracted_terminos_inner.html").read_text(encoding="utf-8"))
     term_main = f"""
-<p class="font-label italic text-[#F5C412] text-lg mb-2">Marco legal del grupo</p>
+<p class="font-label italic text-[#F5C412] text-lg mb-2">Información legal</p>
 <h1 class="font-headline font-black text-2xl sm:text-3xl text-[#e2dcc6] uppercase tracking-tighter mb-4 text-center">Términos y condiciones generales</h1>
-<p class="text-sm text-[#e2dcc6]/70 mb-10 border-l-2 border-[#1266AB]/40 pl-4 leading-relaxed">Aplican a reservas y uso de la plataforma del grupo, junto con las condiciones específicas de cada centro. Contacto: <a class="text-[#F5C412] underline" href="mailto:{FENOMENO_MAIL}">{FENOMENO_MAIL}</a>.</p>
+<p class="text-sm text-[#e2dcc6]/70 mb-10 border-l-2 border-[#1266AB]/40 pl-4 leading-relaxed">Rigen el uso de este sitio web y complementan las condiciones que acuerdes al reservar o al consumir en el local (Madrid). Contacto: <a class="text-[#F5C412] underline" href="mailto:{FENOMENO_MAIL}">{FENOMENO_MAIL}</a>.</p>
 <div class="legal-body text-justify overflow-x-auto">
 {term_inner}
 </div>
 """
     (OUT / "terminos.html").write_text(
-        wrap_page("Términos y condiciones — Fenómeno", term_main),
+        wrap_page(
+            "Términos y condiciones — Fenómeno",
+            "Condiciones de uso de fenomeno.bar y del local Fenómeno (Madrid). Propiedad intelectual, responsabilidad y ley española.",
+            "terminos.html",
+            term_main,
+        ),
         encoding="utf-8",
     )
 
