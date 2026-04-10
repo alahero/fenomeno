@@ -335,6 +335,24 @@
 </div>
 </div>
 </section>
+<!-- Mapa embebido (Snazzy Maps): tarjeta superpuesta en HTML para enlaces y direcciones -->
+<section id="ubicacion" class="w-full bg-[#1e1b1d] pt-16 border-t border-[#3a322f]/50" aria-labelledby="titulo-ubicacion">
+<h2 class="sr-only" id="titulo-ubicacion">Ubicación del local</h2>
+<div class="relative w-full">
+<iframe class="block h-[600px] w-full border-0" height="600" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://snazzymaps.com/embed/785172" title="Mapa de la ubicación de Fenómeno en Madrid" width="100%"></iframe>
+<!-- Tarjeta flotante: debe ser hermana del iframe para recibir clics encima del mapa -->
+<aside class="pointer-events-none absolute right-3 top-3 z-10 flex max-w-[min(22rem,calc(100%-1.5rem))] items-stretch overflow-hidden rounded-2xl border border-[#3a322f]/30 bg-[#e8e4df] shadow-[0_16px_48px_rgba(0,0,0,0.4)] sm:right-6 sm:top-6">
+<div class="pointer-events-auto min-w-0 flex-1 px-4 py-3.5 sm:px-5 sm:py-4">
+<p class="font-headline font-black uppercase tracking-tight text-[#131012] text-sm leading-tight sm:text-base">Fenómeno</p>
+<p class="mt-1.5 font-body text-xs leading-snug text-[#131012]/75 sm:text-sm">Calle Recoletos, 17<br/>Salamanca · 28001 Madrid, España</p>
+</div>
+<div class="pointer-events-auto flex w-[3.35rem] shrink-0 flex-col items-center justify-center gap-2 border-l border-[#131012]/12 py-3 pr-3 pl-2 sm:w-16">
+<a class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#E63912] text-white transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F5C412]" href="https://www.google.com/maps/search/?api=1&amp;query=Calle+Recoletos%2C+17%2C+28001+Madrid%2C+Espa%C3%B1a" rel="noopener noreferrer" target="_blank" aria-label="Abrir la ubicación en Google Maps en una ventana nueva"><span aria-hidden="true" class="material-symbols-outlined text-[1.25rem]">open_in_new</span></a>
+<a class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#E63912] text-white transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F5C412]" href="https://www.google.com/maps/dir/?api=1&amp;destination=Calle+Recoletos%2C+17%2C+28001+Madrid%2C+Espa%C3%B1a" rel="noopener noreferrer" target="_blank" aria-label="Cómo llegar con Google Maps"><span aria-hidden="true" class="material-symbols-outlined text-[1.25rem]">directions</span></a>
+</div>
+</aside>
+</div>
+</section>
 </main>
 <footer id="pie" class="bg-[#1e1b1d] w-full py-12 px-8 mt-auto border-t border-white/5">
 <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 w-full">
