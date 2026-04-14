@@ -44,7 +44,7 @@ NAV = r"""
 <a class="text-[#e2dcc6] hover:text-[#E63912] transition-colors" href="index.html#curaduria">Curaduría</a>
 <a class="text-[#e2dcc6] hover:text-[#E63912] transition-colors" href="contacto.html">Contacto</a>
 </div>
-<a href="index.html#inicio" class="bg-[#E63912] text-white px-6 py-2 rounded-full font-headline font-bold text-sm hover:opacity-90 shrink-0">Reservar mesa</a>
+<a href="https://www.covermanager.com/reservation/module_restaurant/fenomeno/spanish?source=INSTAGRAM&amp;fbclid=PAVERFWARLPJJleHRuA2FlbQIxMABzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAaeA78JKqlMQ1049xPJtiqJpdfKuR4AHJyk_c_TYX5QjyJM1yDk7OWRZ89hBwQ_aem_gtn8xAd3fT3tO_fkForvvw" rel="noopener noreferrer" target="_blank" class="bg-[#E63912] text-white px-6 py-2 rounded-full font-headline font-bold text-sm hover:opacity-90 shrink-0">Reservar mesa</a>
 </nav>
 </header>
 """
